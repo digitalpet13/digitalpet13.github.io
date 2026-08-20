@@ -3,50 +3,247 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Digital Pet Marketplace</title>
+
   <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-  <header>
-    <h1>🐾 Digital Pet Marketplace</h1>
-    <p>Discover • Collect • Battle • Breed</p>
-  </header>
+  <!-- HEADER -->
+  <header class="top-header">
 
-  <main>
-    <h2>🐾 Pet Marketplace</h2>
-    <div id="petGrid" class="pet-grid"></div>
-  </main>
+    <div class="brand">
+      <div class="brand-icon">🐾</div>
 
-  <div id="petModal" class="modal">
-    <div class="modal-box">
-
-      <button class="close" onclick="closePet()">✕</button>
-
-      <img id="petImage" src="" alt="Pet">
-
-      <h2 id="petName"></h2>
-      <p id="petElement"></p>
-      <p id="petRarity"></p>
-
-      <div class="stats">
-        <p>❤️ HP: <span id="petHP"></span></p>
-        <p>⚔️ Attack: <span id="petAttack"></span></p>
-        <p>🛡️ Defense: <span id="petDefense"></span></p>
-        <p>⚡ Speed: <span id="petSpeed"></span></p>
+      <div>
+        <h1>Digital Pet</h1>
+        <p>Marketplace</p>
       </div>
+    </div>
 
-      <button class="battle-btn" onclick="battlePet()">
-        ⚔️ BATTLE
+    <div class="header-actions">
+      <button class="header-btn">
+        🐾 My Pets
       </button>
 
-      <button class="breed-btn" onclick="breedPet()">
-        🧬 BREED
+      <button class="header-btn">
+        🛒 Sell Pet
+      </button>
+    </div>
+
+  </header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+
+    <div class="hero-content">
+
+      <span class="hero-label">
+        🐾 DIGITAL PET ECOSYSTEM
+      </span>
+
+      <h2>
+        Discover Your<br>
+        <span>Perfect Pet</span>
+      </h2>
+
+      <p>
+        Collect unique digital pets, discover their abilities,
+        battle other pets, and breed new generations.
+      </p>
+
+      <button class="hero-btn">
+        Explore Pets
       </button>
 
     </div>
+
+  </section>
+
+
+  <!-- MARKETPLACE -->
+  <main class="marketplace">
+
+    <div class="marketplace-header">
+
+      <div>
+        <span class="section-label">
+          MARKETPLACE
+        </span>
+
+        <h2>Explore Digital Pets</h2>
+      </div>
+
+      <div class="search-box">
+        🔍
+        <input
+          id="petSearch"
+          type="text"
+          placeholder="Search pet..."
+        >
+      </div>
+
+    </div>
+
+
+    <!-- CATEGORIES -->
+    <div class="categories">
+
+      <button class="category active" data-element="All">
+        All
+      </button>
+
+      <button class="category" data-element="Fire">
+        🔥 Fire
+      </button>
+
+      <button class="category" data-element="Water">
+        💧 Water
+      </button>
+
+      <button class="category" data-element="Nature">
+        🌿 Nature
+      </button>
+
+      <button class="category" data-element="Earth">
+        🪨 Earth
+      </button>
+
+      <button class="category" data-element="Electric">
+        ⚡ Electric
+      </button>
+
+      <button class="category" data-element="Wind">
+        🌪️ Wind
+      </button>
+
+      <button class="category" data-element="Shadow">
+        🌑 Shadow
+      </button>
+
+    </div>
+
+
+    <!-- PET GRID -->
+    <section>
+
+      <div id="petGrid" class="pet-grid"></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- PET DETAILS MODAL -->
+  <div id="petModal" class="modal">
+
+    <div class="modal-box">
+
+      <button
+        class="close"
+        onclick="closePet()">
+        ✕
+      </button>
+
+
+      <div class="pet-detail-image">
+
+        <img
+          id="petImage"
+          src=""
+          alt="Digital Pet">
+
+      </div>
+
+
+      <div class="pet-detail-info">
+
+        <span class="detail-label">
+          DIGITAL PET
+        </span>
+
+        <h2 id="petName"></h2>
+
+        <div class="pet-tags">
+
+          <span id="petElement"></span>
+
+          <span id="petRarity"></span>
+
+        </div>
+
+
+        <!-- STATS -->
+        <div class="stats">
+
+          <div class="stat">
+            <span>❤️ HP</span>
+            <strong id="petHP"></strong>
+          </div>
+
+          <div class="stat">
+            <span>⚔️ Attack</span>
+            <strong id="petAttack"></strong>
+          </div>
+
+          <div class="stat">
+            <span>🛡️ Defense</span>
+            <strong id="petDefense"></strong>
+          </div>
+
+          <div class="stat">
+            <span>⚡ Speed</span>
+            <strong id="petSpeed"></strong>
+          </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+        <div class="pet-actions">
+
+          <button
+            class="battle-btn"
+            onclick="battlePet()">
+
+            ⚔️ Battle
+
+          </button>
+
+
+          <button
+            class="breed-btn"
+            onclick="breedPet()">
+
+            🧬 Breed
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p>
+      🐾 Digital Pet Marketplace
+    </p>
+
+    <span>
+      Discover • Collect • Battle • Breed
+    </span>
+
+  </footer>
+
 
   <script src="./script.js"></script>
 
