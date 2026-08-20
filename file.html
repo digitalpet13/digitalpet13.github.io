@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Digital Pet Marketplace - Sign In</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;
+      background: #111522;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-page {
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+    }
+
+    .login-card {
+      background: #1b2030;
+      border: 1px solid #343b52;
+      border-radius: 25px;
+      padding: 35px 25px;
+      text-align: center;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    .logo {
+      font-size: 60px;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    h2 {
+      margin-top: 30px;
+      margin-bottom: 10px;
+    }
+
+    .description {
+      color: #b8bfd1;
+      line-height: 1.5;
+      margin-bottom: 30px;
+    }
+
+    .pi-login-btn {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 16px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background: #7b3ff2;
+      cursor: pointer;
+    }
+
+    .pi-login-btn:active {
+      transform: scale(0.98);
+    }
+
+    .security {
+      margin-top: 20px;
+      color: #8f97aa;
+      font-size: 13px;
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 25px;
+      color: #b8bfd1;
+      text-decoration: none;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="login-page">
+
+    <div class="login-card">
+
+      <div class="logo">🐾</div>
+
+      <h1>Digital Pet</h1>
+
+      <h2>Welcome, Pioneer!</h2>
+
+      <p class="description">
+        Sign in to enter the Digital Pet Marketplace
+        and manage your digital pets.
+      </p>
+
+      <button
+        id="piLoginBtn"
+        class="pi-login-btn"
+        type="button">
+        🟣 Sign in with Pi
+      </button>
+
+      <p class="security">
+        🔐 Pi authentication will be connected here.
+      </p>
+
+      <a class="back-btn" href="index.html">
+        ← Back to Marketplace
+      </a>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
