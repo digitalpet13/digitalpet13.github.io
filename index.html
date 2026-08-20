@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Digital Pet Marketplace</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1>🐾 Digital Pet Marketplace</h1>
+  <p>Discover • Collect • Battle • Breed</p>
+</header>
+
+<main>
+  <h2>Pet Marketplace</h2>
+
+  <div id="petGrid" class="pet-grid"></div>
+</main>
+
+<!-- PET DETAILS -->
+<div id="petModal" class="modal">
+  <div class="modal-box">
+
+    <button class="close" onclick="closePet()">✕</button>
+
+    <img id="petImage" src="" alt="Pet">
+
+    <h2 id="petName"></h2>
+
+    <p id="petElement"></p>
+    <p id="petRarity"></p>
+
+    <div class="stats">
+      <p>❤️ HP: <span id="petHP"></span></p>
+      <p>⚔️ Attack: <span id="petAttack"></span></p>
+      <p>🛡️ Defense: <span id="petDefense"></span></p>
+      <p>⚡ Speed: <span id="petSpeed"></span></p>
+    </div>
+
+    <button class="battle-btn" onclick="battlePet()">
+      ⚔️ BATTLE
+    </button>
+
+    <button class="breed-btn" onclick="breedPet()">
+      🧬 BREED
+    </button>
+
+  </div>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
