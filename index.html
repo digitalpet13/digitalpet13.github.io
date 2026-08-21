@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -517,21 +518,39 @@
       status.textContent = "Connecting to Pi...";
 
       try {
-        Pi.init({ version: "2.0" });
+        // Alberto Digital Pet is currently being tested on Pi Testnet.
+        // Pi's SDK initialization must finish before authenticate() is called.
+        Pi.init({ version: "2.0", sandbox: true })
+          .then(function() {
+            const scopes = ["username"];
 
-        Pi.authenticate(
-          ["username", "payments"],
-          function(authResult) {
+            // Login-only test: no payments requested yet.
+            // Payment handling will be added after authentication works.
+            function onIncompletePaymentFound(payment) {
+              console.log("Incomplete payment found:", payment);
+            }
+
+            return Pi.authenticate(scopes, onIncompletePaymentFound);
+          })
+          .then(function(authResult) {
             console.log("Pi authentication successful:", authResult);
-            status.textContent = "Welcome, " + (authResult.user?.username || "Pioneer") + "!";
+
+            const username =
+              authResult &&
+              authResult.user &&
+              authResult.user.username
+                ? authResult.user.username
+                : "Pioneer";
+
+            status.textContent = "Welcome, " + username + "!";
             showDigitalPetApp();
-          },
-          function(error) {
+          })
+          .catch(function(error) {
             console.error("Pi authentication error:", error);
             button.disabled = false;
-            status.textContent = "Pi sign-in was cancelled or failed. Please try again.";
-          }
-        );
+            status.textContent =
+              "Pi sign-in failed. Make sure this app is opened in Pi Browser and the Testnet app URL is configured in Pi Developer.";
+          });
       } catch (error) {
         console.error(error);
         button.disabled = false;
