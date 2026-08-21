@@ -1,566 +1,253 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alberto Digital Pet</title>
+
+  <title>Digital Pet Marketplace</title>
 
   <link rel="stylesheet" href="./style.css">
-
-  <!-- Pi SDK -->
-  <script src="https://sdk.minepi.com/pi-sdk.js"></script>
-
-  <style>
-    /* =========================
-       ALBERTO DIGITAL PET WELCOME
-       ========================= */
-    #welcomeScreen {
-      min-height: 100vh;
-      box-sizing: border-box;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 28px 18px;
-      position: relative;
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 50% 20%, rgba(126, 45, 255, .34), transparent 34%),
-        radial-gradient(circle at 20% 80%, rgba(255, 180, 40, .16), transparent 28%),
-        linear-gradient(145deg, #090018, #17072f 52%, #070013);
-      color: #fff;
-    }
-
-    #welcomeScreen::before,
-    #welcomeScreen::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      pointer-events: none;
-      filter: blur(2px);
-    }
-
-    #welcomeScreen::before {
-      width: 280px;
-      height: 280px;
-      top: -120px;
-      right: -90px;
-      border: 2px solid rgba(255, 190, 55, .25);
-      box-shadow: 0 0 80px rgba(151, 48, 255, .35);
-    }
-
-    #welcomeScreen::after {
-      width: 220px;
-      height: 220px;
-      bottom: -100px;
-      left: -70px;
-      border: 2px solid rgba(151, 48, 255, .25);
-    }
-
-    .welcome-card {
-      width: min(100%, 520px);
-      text-align: center;
-      position: relative;
-      z-index: 2;
-      padding: 34px 22px 28px;
-      border: 1px solid rgba(181, 95, 255, .45);
-      border-radius: 30px;
-      background: rgba(15, 5, 34, .78);
-      box-shadow:
-        0 0 35px rgba(131, 45, 255, .25),
-        inset 0 0 35px rgba(255, 190, 55, .035);
-      backdrop-filter: blur(12px);
-    }
-
-    .welcome-logo {
-      width: 132px;
-      height: 132px;
-      margin: 0 auto 18px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #f5b52f;
-      box-shadow: 0 0 30px rgba(245, 181, 47, .38);
-      background: #210943;
-    }
-
-    .welcome-title {
-      margin: 0;
-      font-size: clamp(34px, 9vw, 54px);
-      line-height: 1;
-      font-weight: 900;
-      letter-spacing: -.03em;
-      background: linear-gradient(90deg, #ffd45b, #fff, #d59aff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .welcome-subtitle {
-      margin: 9px 0 0;
-      font-size: 20px;
-      font-weight: 700;
-      color: #d7c4ff;
-    }
-
-    .welcome-tagline {
-      margin: 20px auto 8px;
-      max-width: 420px;
-      font-size: 16px;
-      line-height: 1.55;
-      color: #eee6ff;
-    }
-
-    .welcome-focus {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      margin: 8px 0 24px;
-      padding: 9px 15px;
-      border: 1px solid rgba(245, 181, 47, .5);
-      border-radius: 999px;
-      color: #ffd866;
-      background: rgba(245, 181, 47, .08);
-      font-weight: 800;
-      font-size: 14px;
-    }
-
-    #piLoginBtn {
-      width: min(100%, 390px);
-      min-height: 58px;
-      border: 0;
-      border-radius: 18px;
-      cursor: pointer;
-      font-size: 18px;
-      font-weight: 900;
-      color: #fff;
-      background: linear-gradient(100deg, #6d21d9, #a126ff, #7b2cf2);
-      box-shadow: 0 0 25px rgba(157, 50, 255, .45);
-      transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
-    }
-
-    #piLoginBtn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 0 35px rgba(157, 50, 255, .7);
-    }
-
-    #piLoginBtn:disabled {
-      cursor: wait;
-      opacity: .65;
-    }
-
-    .welcome-note {
-      margin: 14px 0 0;
-      font-size: 12px;
-      color: #9e91b8;
-    }
-
-    .welcome-features {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-      margin-top: 26px;
-    }
-
-    .welcome-feature {
-      padding: 13px 7px;
-      border-radius: 16px;
-      background: rgba(111, 42, 190, .12);
-      border: 1px solid rgba(159, 82, 255, .2);
-    }
-
-    .welcome-feature strong {
-      display: block;
-      margin-top: 5px;
-      font-size: 12px;
-      color: #fff;
-    }
-
-    .welcome-feature span {
-      font-size: 23px;
-    }
-
-    #loginStatus {
-      min-height: 20px;
-      margin-top: 10px;
-      font-size: 13px;
-      color: #ffd45b;
-    }
-
-    #appShell[hidden] {
-      display: none !important;
-    }
-
-    @media (max-width: 420px) {
-      .welcome-card {
-        padding: 28px 16px 22px;
-      }
-
-      .welcome-features {
-        gap: 7px;
-      }
-    }
-  </style>
 </head>
 
 <body>
 
-  <!-- =========================
-       WELCOME / LANDING SCREEN
-       ========================= -->
-  <section id="welcomeScreen">
+  <!-- TOP NAVIGATION -->
+  <header class="topbar">
 
-    <div class="welcome-card">
-
-      <!--
-        Palitan ang src kung iba ang filename ng logo mo.
-        page-logo.png ang default dahil iyon ang nasa project mo.
-      -->
-      <img
-        class="welcome-logo"
-        src="./page-logo.png"
-        alt="Alberto Digital Pet logo"
-        onerror="this.style.display='none';"
-      >
-
-      <h1 class="welcome-title">Alberto Digital Pet</h1>
-
-      <p class="welcome-subtitle">
-        Hatch • Breed • Create
-      </p>
-
-      <p class="welcome-tagline">
-        Welcome to our digital pet world. Hatch unique pets,
-        discover new generations, and build your own collection.
-      </p>
-
-      <div class="welcome-focus">
-        🥚 Hatch &amp; Breeding Ecosystem
+    <div class="brand">
+      <img src="./page-logo.png" alt="Digital Pet Marketplace">
+      <div>
+        <strong>Digital Pet</strong>
+        <span>Marketplace</span>
       </div>
-
-      <button id="piLoginBtn" type="button" onclick="signInWithPi()">
-        🟣 Sign in with Pi
-      </button>
-
-      <div id="loginStatus"></div>
-
-      <p class="welcome-note">
-        Connect your Pi account to enter Alberto Digital Pet.
-      </p>
-
-      <div class="welcome-features">
-        <div class="welcome-feature">
-          <span>🥚</span>
-          <strong>Hatch</strong>
-        </div>
-
-        <div class="welcome-feature">
-          <span>🧬</span>
-          <strong>Breed</strong>
-        </div>
-
-        <div class="welcome-feature">
-          <span>🐾</span>
-          <strong>Collect</strong>
-        </div>
-      </div>
-
     </div>
-  </section>
+
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#marketplace">Marketplace</a>
+      <a href="#pets">My Pets</a>
+      <a href="#battle">Battle</a>
+      <a href="#breed">Breed</a>
+    </nav>
+
+  </header>
 
 
-  <!-- =========================
-       EXISTING APP
-       Hidden until Pi login
-       ========================= -->
-  <div id="appShell" hidden>
+  <!-- HERO -->
+  <main id="home">
 
-    <!-- HEADER -->
-    <header class="top-header">
-
-      <div class="brand">
-        <div class="brand-icon">🐾</div>
-
-        <div>
-          <h1>Alberto Digital Pet</h1>
-          <p>Marketplace</p>
-        </div>
-      </div>
-
-      <div class="header-actions">
-        <button class="header-btn">
-          🐾 My Pets
-        </button>
-
-        <button class="header-btn">
-          🛒 Sell Pet
-        </button>
-      </div>
-
-    </header>
-
-
-    <!-- HERO -->
     <section class="hero">
+
+      <div class="hero-logo">
+        <img src="./page-logo.png" alt="Shiba Pi Digital Pet">
+      </div>
 
       <div class="hero-content">
 
-        <span class="hero-label">
-          🐾 ALBERTO DIGITAL PET ECOSYSTEM
-        </span>
+        <div class="badge">
+          🐾 DIGITAL PET UNIVERSE
+        </div>
 
-        <h2>
-          Discover Your<br>
-          <span>Perfect Pet</span>
-        </h2>
+        <h1>
+          DIGITAL PET
+          <span>MARKETPLACE</span>
+        </h1>
 
-        <p>
-          Hatch unique digital pets, discover their abilities,
-          and breed new generations.
+        <p class="hero-text">
+          Discover • Collect • Battle • Breed
         </p>
 
-        <button class="hero-btn">
-          Explore Pets
+        <p class="description">
+          Build your collection of unique digital pets,
+          discover rare creatures, battle other players,
+          and create new generations.
+        </p>
+
+        <!-- PI LOGIN -->
+        <button class="pi-login" onclick="signInWithPi()">
+          <span class="pi-symbol">π</span>
+          <span>Sign in with Pi</span>
         </button>
+
+        <p class="login-note">
+          Connect your Pi account to enter the marketplace.
+        </p>
 
       </div>
 
     </section>
 
 
-    <!-- MARKETPLACE -->
-    <main class="marketplace">
+    <!-- FEATURES -->
+    <section class="features">
 
-      <div class="marketplace-header">
+      <div class="feature-card">
+        <div class="feature-icon">🐾</div>
+        <h3>Collect</h3>
+        <p>Collect unique pets from small creatures to giant beasts.</p>
+      </div>
 
-        <div>
-          <span class="section-label">
-            MARKETPLACE
-          </span>
+      <div class="feature-card">
+        <div class="feature-icon">⚔️</div>
+        <h3>Battle</h3>
+        <p>Let your pet challenge another pet in the battle arena.</p>
+      </div>
 
-          <h2>Explore Digital Pets</h2>
+      <div class="feature-card">
+        <div class="feature-icon">🧬</div>
+        <h3>Breed</h3>
+        <p>Create new generations with inherited traits.</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🛒</div>
+        <h3>Trade</h3>
+        <p>Discover pets available in the digital marketplace.</p>
+      </div>
+
+    </section>
+
+
+    <!-- MARKETPLACE PREVIEW -->
+    <section id="marketplace" class="market-section">
+
+      <div class="section-title">
+        <span>🔥</span>
+        <h2>Featured Pets</h2>
+      </div>
+
+      <div class="preview-grid">
+
+        <div class="preview-card">
+          <img src="./pet_pyron.jpg" alt="Pyron">
+          <h3>Pyron</h3>
+          <p>🔥 Fire • Epic</p>
         </div>
 
-        <div class="search-box">
-          🔍
-          <input
-            id="petSearch"
-            type="text"
-            placeholder="Search pet..."
-          >
+        <div class="preview-card">
+          <img src="./pet_aquos.jpg" alt="Aquos">
+          <h3>Aquos</h3>
+          <p>💧 Water • Rare</p>
+        </div>
+
+        <div class="preview-card">
+          <img src="./pet_lunara.jpg" alt="Lunara">
+          <h3>Lunara</h3>
+          <p>🌙 Moon • Epic</p>
+        </div>
+
+        <div class="preview-card">
+          <img src="./pet_voltik.jpg" alt="Voltik">
+          <h3>Voltik</h3>
+          <p>⚡ Electric • Epic</p>
         </div>
 
       </div>
 
+      <button class="market-btn" onclick="openMarketplace()">
+        🛒 Enter Marketplace
+      </button>
 
-      <!-- CATEGORIES -->
-      <div class="categories">
+    </section>
 
-        <button class="category active" data-element="All">
-          All
-        </button>
 
-        <button class="category" data-element="Fire">
-          🔥 Fire
-        </button>
+    <!-- PROFILE PREVIEW -->
+    <section class="profile-section">
 
-        <button class="category" data-element="Water">
-          💧 Water
-        </button>
+      <div class="profile-card">
 
-        <button class="category" data-element="Nature">
-          🌿 Nature
-        </button>
+        <div class="profile-avatar">
+          👤
+        </div>
 
-        <button class="category" data-element="Earth">
-          🪨 Earth
-        </button>
+        <div class="profile-info">
+          <span class="small-label">PLAYER PROFILE</span>
+          <h2>Pi Pioneer</h2>
+          <p>🐾 Pet Collector</p>
+        </div>
 
-        <button class="category" data-element="Electric">
-          ⚡ Electric
-        </button>
-
-        <button class="category" data-element="Wind">
-          🌪️ Wind
-        </button>
-
-        <button class="category" data-element="Shadow">
-          🌑 Shadow
+        <button class="profile-btn" onclick="openProfile()">
+          View Profile
         </button>
 
       </div>
 
 
-      <!-- PET GRID -->
-      <section>
-        <div id="petGrid" class="pet-grid"></div>
-      </section>
+      <!-- WALLET -->
+      <div class="wallet-card">
 
-    </main>
-
-
-    <!-- PET DETAILS MODAL -->
-    <div id="petModal" class="modal">
-
-      <div class="modal-box">
-
-        <button
-          class="close"
-          onclick="closePet()">
-          ✕
-        </button>
-
-        <div class="pet-detail-image">
-          <img
-            id="petImage"
-            src=""
-            alt="Digital Pet">
+        <div class="wallet-title">
+          <span>🟣</span>
+          <h3>Pi Wallet</h3>
         </div>
 
-        <div class="pet-detail-info">
+        <p class="small-label">AVAILABLE BALANCE</p>
 
-          <span class="detail-label">
-            DIGITAL PET
-          </span>
-
-          <h2 id="petName"></h2>
-
-          <div class="pet-tags">
-            <span id="petElement"></span>
-            <span id="petRarity"></span>
-          </div>
-
-          <!-- STATS -->
-          <div class="stats">
-
-            <div class="stat">
-              <span>❤️ HP</span>
-              <strong id="petHP"></strong>
-            </div>
-
-            <div class="stat">
-              <span>⚔️ Attack</span>
-              <strong id="petAttack"></strong>
-            </div>
-
-            <div class="stat">
-              <span>🛡️ Defense</span>
-              <strong id="petDefense"></strong>
-            </div>
-
-            <div class="stat">
-              <span>⚡ Speed</span>
-              <strong id="petSpeed"></strong>
-            </div>
-
-          </div>
-
-          <!-- ACTIONS -->
-          <div class="pet-actions">
-
-            <button
-              class="battle-btn"
-              onclick="battlePet()">
-              ⚔️ Battle
-            </button>
-
-            <button
-              class="breed-btn"
-              onclick="breedPet()">
-              🧬 Breed
-            </button>
-
-          </div>
-
+        <div class="balance">
+          <span id="piBalance">—</span>
+          <b>π</b>
         </div>
+
+        <p class="wallet-note">
+          Balance will appear after Pi authentication.
+        </p>
 
       </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div>
+      🐾 <strong>Digital Pet Marketplace</strong>
     </div>
 
+    <p>
+      Your Pets • Your Journey • Your Pi Universe
+    </p>
 
-    <!-- FOOTER -->
-    <footer>
+    <small>
+      Testnet environment • No passphrase requested
+    </small>
 
-      <p>
-        🐾 Alberto Digital Pet Marketplace
-      </p>
-
-      <span>
-        Hatch • Breed • Collect
-      </span>
-
-    </footer>
-
-  </div>
+  </footer>
 
 
   <script>
-    /*
-      Pi authentication.
-      After successful login, the welcome screen disappears
-      and the existing Marketplace/Home interface appears.
-    */
-    function showDigitalPetApp() {
-      document.getElementById("welcomeScreen").style.display = "none";
-      document.getElementById("appShell").hidden = false;
-      window.scrollTo(0, 0);
-    }
 
     function signInWithPi() {
-      const button = document.getElementById("piLoginBtn");
-      const status = document.getElementById("loginStatus");
 
-      if (typeof Pi === "undefined") {
-        status.textContent = "Please open Alberto Digital Pet inside Pi Browser.";
-        return;
-      }
+      alert(
+        "🟣 Sign in with Pi\n\n" +
+        "Pi authentication will be connected here " +
+        "when we integrate the official Pi Developer SDK."
+      );
 
-      button.disabled = true;
-      status.textContent = "Connecting to Pi...";
-
-      try {
-        // Alberto Digital Pet is currently being tested on Pi Testnet.
-        // Pi's SDK initialization must finish before authenticate() is called.
-        Pi.init({ version: "2.0", sandbox: true })
-          .then(function() {
-            const scopes = ["username"];
-
-            // Login-only test: no payments requested yet.
-            // Payment handling will be added after authentication works.
-            function onIncompletePaymentFound(payment) {
-              console.log("Incomplete payment found:", payment);
-            }
-
-            return Pi.authenticate(scopes, onIncompletePaymentFound);
-          })
-          .then(function(authResult) {
-            console.log("Pi authentication successful:", authResult);
-
-            const username =
-              authResult &&
-              authResult.user &&
-              authResult.user.username
-                ? authResult.user.username
-                : "Pioneer";
-
-            status.textContent = "Welcome, " + username + "!";
-            showDigitalPetApp();
-          })
-          .catch(function(error) {
-            console.error("Pi authentication error:", error);
-            button.disabled = false;
-            status.textContent =
-              "Pi sign-in failed. Make sure this app is opened in Pi Browser and the Testnet app URL is configured in Pi Developer.";
-          });
-      } catch (error) {
-        console.error(error);
-        button.disabled = false;
-        status.textContent = "Unable to connect to Pi. Please try again in Pi Browser.";
-      }
     }
-  </script>
 
-  <!-- Your existing marketplace JavaScript -->
-  <script src="./script.js"></script>
+
+    function openMarketplace() {
+
+      window.location.href = "marketplace.html";
+
+    }
+
+
+    function openProfile() {
+
+      alert(
+        "👤 Player Profile\n\n" +
+        "Profile and wallet information will appear " +
+        "after Pi authentication."
+      );
+
+    }
+
+  </script>
 
 </body>
 </html>
