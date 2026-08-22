@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Digital Pet Marketplace</title>
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header class="topbar">
+
+    <div class="brand">
+      <img src="./page-logo.png" alt="Digital Pet">
+      <div>
+        <strong>Digital Pet</strong>
+        <span>Marketplace</span>
+      </div>
+    </div>
+
+    <a href="index.html" class="header-btn">
+      🏠 Home
+    </a>
+
+  </header>
+
+
+  <!-- MARKETPLACE -->
+  <main class="marketplace">
+
+    <div class="marketplace-header">
+
+      <div>
+        <span class="section-label">
+          🐾 DIGITAL PET MARKETPLACE
+        </span>
+
+        <h2>Explore All Pets</h2>
+      </div>
+
+      <div class="search-box">
+        🔍
+        <input
+          id="petSearch"
+          type="text"
+          placeholder="Search pet..."
+        >
+      </div>
+
+    </div>
+
+
+    <!-- CATEGORIES -->
+
+    <div class="categories">
+
+      <button class="category active" data-element="All">
+        🐾 All Pets
+      </button>
+
+      <button class="category" data-element="Fire">
+        🔥 Fire
+      </button>
+
+      <button class="category" data-element="Water">
+        💧 Water
+      </button>
+
+      <button class="category" data-element="Nature">
+        🌿 Nature
+      </button>
+
+      <button class="category" data-element="Earth">
+        🪨 Earth
+      </button>
+
+      <button class="category" data-element="Electric">
+        ⚡ Electric
+      </button>
+
+      <button class="category" data-element="Wind">
+        🌪️ Wind
+      </button>
+
+      <button class="category" data-element="Shadow">
+        🌑 Shadow
+      </button>
+
+      <button class="category" data-element="Moon">
+        🌙 Moon
+      </button>
+
+      <button class="category" data-element="Insect">
+        🐞 Insect
+      </button>
+
+      <button class="category" data-element="Beast">
+        🐉 Beast
+      </button>
+
+    </div>
+
+
+    <!-- PET GRID -->
+
+    <section>
+
+      <div id="petGrid" class="pet-grid"></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- PET DETAILS -->
+
+  <div id="petModal" class="modal">
+
+    <div class="modal-box">
+
+      <button
+        class="close"
+        onclick="closePet()">
+        ✕
+      </button>
+
+
+      <div class="pet-detail-image">
+
+        <img
+          id="petImage"
+          src=""
+          alt="Digital Pet">
+
+      </div>
+
+
+      <div class="pet-detail-info">
+
+        <span class="detail-label">
+          DIGITAL PET
+        </span>
+
+        <h2 id="petName"></h2>
+
+        <div class="pet-tags">
+
+          <span id="petElement"></span>
+
+          <span id="petRarity"></span>
+
+        </div>
+
+
+        <!-- ABILITY STATS -->
+
+        <h3>⚔️ Ability Stats</h3>
+
+        <div class="stats">
+
+          <div class="stat">
+            <span>❤️ HP</span>
+            <strong id="petHP"></strong>
+          </div>
+
+          <div class="stat">
+            <span>⚔️ Attack</span>
+            <strong id="petAttack"></strong>
+          </div>
+
+          <div class="stat">
+            <span>🛡️ Defense</span>
+            <strong id="petDefense"></strong>
+          </div>
+
+          <div class="stat">
+            <span>⚡ Speed</span>
+            <strong id="petSpeed"></strong>
+          </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+
+        <div class="pet-actions">
+
+          <button
+            class="battle-btn"
+            onclick="battlePet()">
+            ⚔️ Battle
+          </button>
+
+          <button
+            class="breed-btn"
+            onclick="breedPet()">
+            🧬 Breed
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <footer>
+
+    <p>🐾 Digital Pet Marketplace</p>
+
+    <span>
+      Collect • Battle • Breed • Trade
+    </span>
+
+  </footer>
+
+
+  <script src="./script.js"></script>
+
+</body>
+</html>
