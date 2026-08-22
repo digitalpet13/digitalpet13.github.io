@@ -574,3 +574,329 @@ footer small {
   }
 
 }
+/* =================================
+   PREMIUM MARKETPLACE
+================================= */
+
+.marketplace {
+  max-width: 1200px;
+  margin: auto;
+  padding: 28px 18px 70px;
+}
+
+.marketplace-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 22px;
+}
+
+.section-label {
+  color: #a875ff;
+  font-size: 11px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.marketplace-header h2 {
+  margin: 7px 0 0;
+  font-size: 30px;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: 250px;
+  padding: 11px 14px;
+
+  background: #11152b;
+  border: 1px solid #343865;
+  border-radius: 12px;
+
+  color: #858cae;
+}
+
+.search-box input {
+  width: 100%;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: white;
+  font-size: 14px;
+}
+
+.search-box input::placeholder {
+  color: #686f91;
+}
+
+
+/* CATEGORY FILTER */
+
+.categories {
+  display: flex;
+  gap: 8px;
+
+  margin-bottom: 25px;
+
+  padding: 8px;
+
+  overflow-x: auto;
+
+  background: rgba(13, 16, 39, 0.85);
+  border: 1px solid #292d55;
+  border-radius: 15px;
+
+  scrollbar-width: none;
+}
+
+.categories::-webkit-scrollbar {
+  display: none;
+}
+
+.category {
+  flex: 0 0 auto;
+
+  padding: 9px 15px;
+
+  border: 1px solid #30355f;
+  border-radius: 10px;
+
+  background: #151936;
+
+  color: #aeb4d0;
+
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.category:hover {
+  border-color: #8d4dff;
+  color: white;
+}
+
+.category.active {
+  color: white;
+
+  border-color: #a85cff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #6522c7,
+      #8e38ed
+    );
+
+  box-shadow:
+    0 4px 15px rgba(145, 58, 255, 0.25);
+}
+
+
+/* PET GRID */
+
+.marketplace .pet-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+}
+
+
+/* PET CARD */
+
+.marketplace .pet-card {
+  position: relative;
+
+  padding: 8px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #181c38,
+      #101329
+    );
+
+  border: 1px solid #30355f;
+  border-radius: 15px;
+
+  cursor: pointer;
+
+  overflow: hidden;
+
+  transition:
+    transform 0.2s,
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.marketplace .pet-card:hover {
+  transform: translateY(-4px);
+
+  border-color: #a45cff;
+
+  box-shadow:
+    0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+
+/* SMALLER PET IMAGE */
+
+.marketplace .pet-card img {
+  display: block;
+
+  width: 100%;
+
+  aspect-ratio: 1 / 0.86;
+
+  object-fit: cover;
+
+  border-radius: 10px;
+}
+
+
+/* PET NAME */
+
+.marketplace .pet-card h3 {
+  margin: 10px 5px 3px;
+
+  text-align: left;
+
+  font-size: 15px;
+}
+
+
+/* PET INFO */
+
+.marketplace .pet-card p {
+  margin: 3px 5px;
+
+  text-align: left;
+
+  color: #9da5c4;
+
+  font-size: 11px;
+}
+
+
+/* MODAL */
+
+.marketplace + .modal,
+#petModal {
+  backdrop-filter: blur(6px);
+}
+
+#petModal .modal-box {
+  max-width: 390px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #181b39,
+      #0d1025
+    );
+
+  border-color: #3d4272;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+#petModal .modal-box > img {
+  max-height: 280px;
+  object-fit: cover;
+}
+
+
+/* ABILITY STATS */
+
+#petModal .stats {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+
+  background: transparent;
+
+  padding: 0;
+}
+
+#petModal .stat {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 11px;
+
+  background: #11152c;
+
+  border: 1px solid #292e55;
+  border-radius: 10px;
+
+  font-size: 12px;
+}
+
+#petModal .stat strong {
+  color: #d69aff;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .marketplace-header {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .marketplace .pet-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
+}
+
+@media (max-width: 520px) {
+
+  .marketplace {
+    padding: 20px 12px 50px;
+  }
+
+  .marketplace-header h2 {
+    font-size: 24px;
+  }
+
+  .marketplace .pet-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .marketplace .pet-card {
+    padding: 7px;
+    border-radius: 12px;
+  }
+
+  .marketplace .pet-card img {
+    aspect-ratio: 1 / 0.88;
+    border-radius: 9px;
+  }
+
+  .category {
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+
+}
