@@ -11,238 +11,68 @@
 
 <body>
 
-  <!-- TOP NAVIGATION -->
-  <header class="topbar">
+  <main class="login-page">
 
-    <div class="brand">
-      <img src="./page-logo.png" alt="Digital Pet Marketplace">
-      <div>
-        <strong>Digital Pet</strong>
-        <span>Marketplace</span>
-      </div>
-    </div>
+    <div class="login-card">
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#marketplace">Marketplace</a>
-      <a href="#pets">My Pets</a>
-      <a href="#battle">Battle</a>
-      <a href="#breed">Breed</a>
-    </nav>
+      <img
+        src="./page-logo.png"
+        alt="Digital Pet Marketplace"
+        class="login-logo"
+      >
 
-  </header>
+      <h1>Digital Pet</h1>
 
+      <p class="login-subtitle">
+        Marketplace
+      </p>
 
-  <!-- HERO -->
-  <main id="home">
+      <p class="login-description">
+        Collect • Battle • Breed • Trade
+      </p>
 
-    <section class="hero">
+      <button
+        class="pi-login"
+        onclick="signInWithPi()"
+      >
 
-      <div class="hero-logo">
-        <img src="./page-logo.png" alt="Shiba Pi Digital Pet">
-      </div>
+        <span class="pi-symbol">π</span>
 
-      <div class="hero-content">
+        <span>
+          Sign in with Pi
+        </span>
 
-        <div class="badge">
-          🐾 DIGITAL PET UNIVERSE
-        </div>
-
-        <h1>
-          DIGITAL PET
-          <span>MARKETPLACE</span>
-        </h1>
-
-        <p class="hero-text">
-          Discover • Collect • Battle • Breed
-        </p>
-
-        <p class="description">
-          Build your collection of unique digital pets,
-          discover rare creatures, battle other players,
-          and create new generations.
-        </p>
-
-        <!-- PI LOGIN -->
-        <button class="pi-login" onclick="signInWithPi()">
-          <span class="pi-symbol">π</span>
-          <span>Sign in with Pi</span>
-        </button>
-
-        <p class="login-note">
-          Connect your Pi account to enter the marketplace.
-        </p>
-
-      </div>
-
-    </section>
-
-
-    <!-- FEATURES -->
-    <section class="features">
-
-      <div class="feature-card">
-        <div class="feature-icon">🐾</div>
-        <h3>Collect</h3>
-        <p>Collect unique pets from small creatures to giant beasts.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">⚔️</div>
-        <h3>Battle</h3>
-        <p>Let your pet challenge another pet in the battle arena.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🧬</div>
-        <h3>Breed</h3>
-        <p>Create new generations with inherited traits.</p>
-      </div>
-
-      <div class="feature-card">
-        <div class="feature-icon">🛒</div>
-        <h3>Trade</h3>
-        <p>Discover pets available in the digital marketplace.</p>
-      </div>
-
-    </section>
-
-
-    <!-- MARKETPLACE PREVIEW -->
-    <section id="marketplace" class="market-section">
-
-      <div class="section-title">
-        <span>🔥</span>
-        <h2>Featured Pets</h2>
-      </div>
-
-      <div class="preview-grid">
-
-        <div class="preview-card">
-          <img src="./pet_pyron.jpg" alt="Pyron">
-          <h3>Pyron</h3>
-          <p>🔥 Fire • Epic</p>
-        </div>
-
-        <div class="preview-card">
-          <img src="./pet_aquos.jpg" alt="Aquos">
-          <h3>Aquos</h3>
-          <p>💧 Water • Rare</p>
-        </div>
-
-        <div class="preview-card">
-          <img src="./pet_lunara.jpg" alt="Lunara">
-          <h3>Lunara</h3>
-          <p>🌙 Moon • Epic</p>
-        </div>
-
-        <div class="preview-card">
-          <img src="./pet_voltik.jpg" alt="Voltik">
-          <h3>Voltik</h3>
-          <p>⚡ Electric • Epic</p>
-        </div>
-
-      </div>
-
-      <button class="market-btn" onclick="openMarketplace()">
-        🛒 Enter Marketplace
       </button>
 
-    </section>
+      <p class="login-note">
+        Pi Sandbox • Test Environment
+      </p>
 
+      <p class="security-note">
+        🔐 No passphrase requested
+      </p>
 
-    <!-- PROFILE PREVIEW -->
-    <section class="profile-section">
-
-      <div class="profile-card">
-
-        <div class="profile-avatar">
-          👤
-        </div>
-
-        <div class="profile-info">
-          <span class="small-label">PLAYER PROFILE</span>
-          <h2>Pi Pioneer</h2>
-          <p>🐾 Pet Collector</p>
-        </div>
-
-        <button class="profile-btn" onclick="openProfile()">
-          View Profile
-        </button>
-
-      </div>
-
-
-      <!-- WALLET -->
-      <div class="wallet-card">
-
-        <div class="wallet-title">
-          <span>🟣</span>
-          <h3>Pi Wallet</h3>
-        </div>
-
-        <p class="small-label">AVAILABLE BALANCE</p>
-
-        <div class="balance">
-          <span id="piBalance">—</span>
-          <b>π</b>
-        </div>
-
-        <p class="wallet-note">
-          Balance will appear after Pi authentication.
-        </p>
-
-      </div>
-
-    </section>
-
-  </main>
-
-
-  <!-- FOOTER -->
-  <footer>
-
-    <div>
-      🐾 <strong>Digital Pet Marketplace</strong>
     </div>
 
-    <p>
-      Your Pets • Your Journey • Your Pi Universe
-    </p>
-
-    <small>
-      Testnet environment • No passphrase requested
-    </small>
-
-  </footer>
+  </main>
 
 
   <script>
 
     function signInWithPi() {
 
+      /*
+       * Pi Sandbox authentication will be connected here.
+       *
+       * After successful authentication:
+       *
+       * window.location.href = "marketplace.html";
+       */
+
       alert(
-        "🟣 Sign in with Pi\n\n" +
+        "🟣 Pi Sandbox\n\n" +
         "Pi authentication will be connected here " +
-        "when we integrate the official Pi Developer SDK."
-      );
-
-    }
-
-
-    function openMarketplace() {
-
-      window.location.href = "marketplace.html";
-
-    }
-
-
-    function openProfile() {
-
-      alert(
-        "👤 Player Profile\n\n" +
-        "Profile and wallet information will appear " +
-        "after Pi authentication."
+        "using the Pi SDK."
       );
 
     }
