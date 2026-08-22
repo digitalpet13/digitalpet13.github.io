@@ -1,205 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>Digital Pet Marketplace</title>
 
   <link rel="stylesheet" href="./style.css">
+
 </head>
+
 
 <body>
 
-  <!-- HEADER -->
-  <header class="topbar">
+<header class="topbar">
 
-    <div class="brand">
-      <img src="./page-logo.png" alt="Digital Pet">
-      <div>
-        <strong>Digital Pet</strong>
-        <span>Marketplace</span>
-      </div>
+  <div class="brand">
+
+    <img
+      src="./page-logo.png"
+      alt="Digital Pet Marketplace"
+    >
+
+    <div>
+
+      <strong>Digital Pet</strong>
+
+      <span>Marketplace</span>
+
     </div>
 
-    <a href="index.html" class="header-btn">
-      🏠 Home
+  </div>
+
+
+  <nav>
+
+    <a href="./index.html">
+      Home
     </a>
 
-  </header>
+    <a href="#marketplace">
+      Marketplace
+    </a>
+
+    <a href="#pets">
+      My Pets
+    </a>
+
+    <a href="#battle">
+      Battle
+    </a>
+
+    <a href="#breed">
+      Breed
+    </a>
+
+  </nav>
+
+</header>
 
 
-  <!-- MARKETPLACE -->
-  <main class="marketplace">
+<main>
 
-    <div class="marketplace-header">
+<section
+  id="marketplace"
+  class="market-section"
+>
 
-      <div>
-        <span class="section-label">
-          🐾 DIGITAL PET MARKETPLACE
-        </span>
+  <div class="section-title">
 
-        <h2>Explore All Pets</h2>
-      </div>
+    <span>🐾</span>
 
-      <div class="search-box">
-        🔍
-        <input
-          id="petSearch"
-          type="text"
-          placeholder="Search pet..."
-        >
-      </div>
+    <div>
 
-    </div>
+      <h2>
+        Digital Pet Marketplace
+      </h2>
 
-
-    <!-- CATEGORIES -->
-
-    <div class="categories">
-
-      <button class="category active" data-element="All">
-        🐾 All Pets
-      </button>
-
-      <button class="category" data-element="Fire">
-        🔥 Fire
-      </button>
-
-      <button class="category" data-element="Water">
-        💧 Water
-      </button>
-
-      <button class="category" data-element="Nature">
-        🌿 Nature
-      </button>
-
-      <button class="category" data-element="Earth">
-        🪨 Earth
-      </button>
-
-      <button class="category" data-element="Electric">
-        ⚡ Electric
-      </button>
-
-      <button class="category" data-element="Wind">
-        🌪️ Wind
-      </button>
-
-      <button class="category" data-element="Shadow">
-        🌑 Shadow
-      </button>
-
-      <button class="category" data-element="Moon">
-        🌙 Moon
-      </button>
-
-      <button class="category" data-element="Insect">
-        🐞 Insect
-      </button>
-
-      <button class="category" data-element="Beast">
-        🐉 Beast
-      </button>
+      <p>
+        Collect • Battle • Breed • Trade
+      </p>
 
     </div>
 
-
-    <!-- PET GRID -->
-
-    <section>
-
-      <div id="petGrid" class="pet-grid"></div>
-
-    </section>
-
-  </main>
+  </div>
 
 
-  <!-- PET DETAILS -->
+  <div class="marketplace-intro">
 
-  <div id="petModal" class="modal">
+    <h1>
+      Discover Your Pet
+    </h1>
 
-    <div class="modal-box">
+    <p>
+      Choose a digital pet to view its
+      abilities, stats and information.
+    </p>
 
-      <button
-        class="close"
-        onclick="closePet()">
-        ✕
-      </button>
+  </div>
 
 
-      <div class="pet-detail-image">
+  <!-- 8 PETS WILL LOAD HERE -->
+
+  <div
+    id="petGrid"
+    class="preview-grid"
+  ></div>
+
+
+</section>
+
+</main>
+
+
+<!-- ========================= -->
+<!-- PET DETAILS MODAL -->
+<!-- ========================= -->
+
+<div
+  id="petModal"
+  class="pet-modal"
+>
+
+  <div
+    class="pet-modal-backdrop"
+    onclick="closePetDetails()"
+  ></div>
+
+
+  <div class="pet-details">
+
+
+    <button
+      class="close-pet"
+      onclick="closePetDetails()"
+    >
+      ✕
+    </button>
+
+
+    <!-- PET IMAGE -->
+
+    <div class="pet-details-left">
+
+      <div
+        id="petRarityGlow"
+        class="pet-art-box"
+      >
 
         <img
-          id="petImage"
+          id="detailPetImage"
           src=""
-          alt="Digital Pet">
+          alt="Pet"
+        >
+
+        <div
+          id="detailRarity"
+          class="rarity-badge"
+        >
+          EPIC
+        </div>
 
       </div>
 
 
-      <div class="pet-detail-info">
+      <div class="pet-element">
 
-        <span class="detail-label">
-          DIGITAL PET
+        <span id="detailElementIcon">
+          🔥
         </span>
 
-        <h2 id="petName"></h2>
+        <span id="detailElement">
+          Fire
+        </span>
 
-        <div class="pet-tags">
+      </div>
 
-          <span id="petElement"></span>
+    </div>
 
-          <span id="petRarity"></span>
+
+    <!-- PET INFORMATION -->
+
+    <div class="pet-details-right">
+
+      <span class="details-label">
+        DIGITAL PET
+      </span>
+
+
+      <h2 id="detailName">
+        Pet Name
+      </h2>
+
+
+      <p
+        id="detailDescription"
+        class="pet-description"
+      >
+        Pet description.
+      </p>
+
+
+      <div class="stats-title">
+
+        <span>⚔️</span>
+
+        <h3>
+          Ability Stats
+        </h3>
+
+      </div>
+
+
+      <!-- HP -->
+
+      <div class="stat">
+
+        <div class="stat-header">
+
+          <span>
+            ❤️ HP
+          </span>
+
+          <b id="hpValue">
+            0
+          </b>
 
         </div>
 
 
-        <!-- ABILITY STATS -->
+        <div class="stat-bar">
 
-        <h3>⚔️ Ability Stats</h3>
+          <div
+            id="hpBar"
+            class="stat-fill"
+          ></div>
 
-        <div class="stats">
+        </div>
 
-          <div class="stat">
-            <span>❤️ HP</span>
-            <strong id="petHP"></strong>
-          </div>
+      </div>
 
-          <div class="stat">
-            <span>⚔️ Attack</span>
-            <strong id="petAttack"></strong>
-          </div>
 
-          <div class="stat">
-            <span>🛡️ Defense</span>
-            <strong id="petDefense"></strong>
-          </div>
+      <!-- ATTACK -->
 
-          <div class="stat">
-            <span>⚡ Speed</span>
-            <strong id="petSpeed"></strong>
-          </div>
+      <div class="stat">
+
+        <div class="stat-header">
+
+          <span>
+            ⚔️ Attack
+          </span>
+
+          <b id="attackValue">
+            0
+          </b>
 
         </div>
 
 
-        <!-- ACTIONS -->
+        <div class="stat-bar">
 
-        <div class="pet-actions">
+          <div
+            id="attackBar"
+            class="stat-fill"
+          ></div>
 
-          <button
-            class="battle-btn"
-            onclick="battlePet()">
-            ⚔️ Battle
-          </button>
+        </div>
 
-          <button
-            class="breed-btn"
-            onclick="breedPet()">
-            🧬 Breed
-          </button>
+      </div>
+
+
+      <!-- DEFENSE -->
+
+      <div class="stat">
+
+        <div class="stat-header">
+
+          <span>
+            🛡️ Defense
+          </span>
+
+          <b id="defenseValue">
+            0
+          </b>
+
+        </div>
+
+
+        <div class="stat-bar">
+
+          <div
+            id="defenseBar"
+            class="stat-fill"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- SPEED -->
+
+      <div class="stat">
+
+        <div class="stat-header">
+
+          <span>
+            ⚡ Speed
+          </span>
+
+          <b id="speedValue">
+            0
+          </b>
+
+        </div>
+
+
+        <div class="stat-bar">
+
+          <div
+            id="speedBar"
+            class="stat-fill"
+          ></div>
+
+        </div>
+
+      </div>
+
+
+      <!-- ABILITY -->
+
+      <button
+        id="abilityButton"
+        class="ability-button"
+        onclick="showAbility()"
+      >
+
+        ✨ View Special Ability
+
+      </button>
+
+
+      <div
+        id="abilityBox"
+        class="ability-box"
+      >
+
+        <div class="ability-icon">
+          ✨
+        </div>
+
+
+        <div>
+
+          <span>
+            SPECIAL ABILITY
+          </span>
+
+
+          <h3 id="abilityName">
+            —
+          </h3>
+
+
+          <p id="abilityDescription">
+            —
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- META -->
+
+      <div class="pet-meta">
+
+        <div>
+
+          <span>
+            Generation
+          </span>
+
+          <b id="detailGeneration">
+            Gen 1
+          </b>
+
+        </div>
+
+
+        <div>
+
+          <span>
+            Rarity
+          </span>
+
+          <b id="detailRarityText">
+            Epic
+          </b>
 
         </div>
 
@@ -209,19 +413,32 @@
 
   </div>
 
-
-  <footer>
-
-    <p>🐾 Digital Pet Marketplace</p>
-
-    <span>
-      Collect • Battle • Breed • Trade
-    </span>
-
-  </footer>
+</div>
 
 
-  <script src="./script.js"></script>
+<footer>
+
+  <div>
+    🐾 <strong>Digital Pet Marketplace</strong>
+  </div>
+
+
+  <p>
+    Your Pets • Your Journey • Your Pi Universe
+  </p>
+
+
+  <small>
+    Testnet environment • No passphrase requested
+  </small>
+
+</footer>
+
+
+<!-- PET DATA + PET SYSTEM -->
+
+<script src="./pets.js"></script>
 
 </body>
+
 </html>
