@@ -731,3 +731,581 @@ footer {
   }
 
 }
+/* =========================================
+   PET MARKETPLACE CARDS
+========================================= */
+
+.pet-card {
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.pet-card:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+.pet-card:active {
+  transform: scale(0.97);
+}
+
+.pet-card-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.pet-card-image img {
+  width: 100%;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.pet-card:hover .pet-card-image img {
+  transform: scale(1.08);
+}
+
+.card-rarity {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 800;
+  background: rgba(20, 20, 30, 0.85);
+}
+
+.click-hint {
+  margin-top: 8px;
+  font-size: 11px;
+  opacity: 0.55;
+}
+
+
+/* =========================================
+   PET DETAILS MODAL
+========================================= */
+
+body.modal-open {
+  overflow: hidden;
+}
+
+.pet-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
+}
+
+.pet-modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pet-modal-backdrop {
+  position: absolute;
+  inset: 0;
+
+  background:
+    rgba(0, 0, 0, 0.78);
+
+  backdrop-filter: blur(8px);
+}
+
+
+/* =========================================
+   PET DETAILS PANEL
+========================================= */
+
+.pet-details {
+  position: relative;
+  z-index: 2;
+
+  width: min(920px, 100%);
+
+  max-height: 90vh;
+  overflow-y: auto;
+
+  display: grid;
+  grid-template-columns: 42% 58%;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(31, 31, 50, 0.98),
+      rgba(13, 13, 25, 0.98)
+    );
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 30px 100px rgba(0, 0, 0, 0.7);
+
+  transform:
+    translateY(40px)
+    scale(0.94);
+
+  transition:
+    transform 0.4s ease;
+}
+
+.pet-modal.show .pet-details {
+  transform:
+    translateY(0)
+    scale(1);
+}
+
+
+/* =========================================
+   CLOSE BUTTON
+========================================= */
+
+.close-pet {
+  position: absolute;
+
+  top: 14px;
+  right: 14px;
+
+  z-index: 10;
+
+  width: 38px;
+  height: 38px;
+
+  border: 0;
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.55);
+
+  color: white;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.close-pet:hover {
+  transform: rotate(90deg);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+
+/* =========================================
+   PET ART
+========================================= */
+
+.pet-details-left {
+  padding: 30px;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.pet-art-box {
+  position: relative;
+
+  width: 100%;
+  max-width: 340px;
+
+  border-radius: 22px;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.12),
+      rgba(0, 0, 0, 0.3)
+    );
+
+  box-shadow:
+    0 0 45px rgba(160, 80, 255, 0.18);
+
+  animation:
+    petFloat 4s ease-in-out infinite;
+}
+
+.pet-art-box img {
+  width: 100%;
+  display: block;
+
+  transition:
+    transform 0.5s ease;
+}
+
+.pet-art-box:hover img {
+  transform: scale(1.05);
+}
+
+@keyframes petFloat {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
+
+}
+
+
+/* =========================================
+   RARITY
+========================================= */
+
+.rarity-badge {
+  position: absolute;
+
+  bottom: 14px;
+  left: 14px;
+
+  padding: 7px 14px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(20, 20, 30, 0.85);
+
+  border:
+    1px solid rgba(255, 255, 255, 0.2);
+
+  font-size: 12px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+}
+
+.pet-element {
+  margin-top: 15px;
+
+  padding: 9px 18px;
+
+  border-radius: 30px;
+
+  background:
+    rgba(255, 255, 255, 0.07);
+
+  font-weight: 700;
+}
+
+
+/* =========================================
+   DETAILS CONTENT
+========================================= */
+
+.pet-details-right {
+  padding: 42px 38px;
+}
+
+.details-label {
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: 0.55;
+}
+
+.pet-details-right h2 {
+  margin: 4px 0 5px;
+
+  font-size: 38px;
+}
+
+.pet-description {
+  opacity: 0.65;
+  line-height: 1.5;
+  margin-bottom: 25px;
+}
+
+.stats-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 15px;
+}
+
+.stats-title h3 {
+  margin: 0;
+}
+
+
+/* =========================================
+   STAT BARS
+========================================= */
+
+.stat {
+  margin-bottom: 15px;
+}
+
+.stat-header {
+  display: flex;
+  justify-content: space-between;
+
+  margin-bottom: 6px;
+
+  font-size: 13px;
+}
+
+.stat-header b {
+  font-size: 13px;
+}
+
+.stat-bar {
+  width: 100%;
+  height: 8px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background:
+    rgba(255, 255, 255, 0.09);
+}
+
+.stat-fill {
+  width: 0%;
+
+  height: 100%;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7c3aed,
+      #c084fc
+    );
+
+  transition:
+    width 1s cubic-bezier(.2,.8,.2,1);
+}
+
+
+/* =========================================
+   ABILITY BUTTON
+========================================= */
+
+.ability-button {
+  width: 100%;
+
+  margin-top: 10px;
+  padding: 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  border-radius: 12px;
+
+  background:
+    rgba(124, 58, 237, 0.18);
+
+  color: white;
+
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.ability-button:hover {
+  transform: translateY(-2px);
+
+  background:
+    rgba(124, 58, 237, 0.32);
+}
+
+
+/* =========================================
+   ABILITY REVEAL
+========================================= */
+
+.ability-box {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-top: 15px;
+  padding: 16px;
+
+  border-radius: 15px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(124, 58, 237, 0.18),
+      rgba(192, 132, 252, 0.08)
+    );
+
+  border:
+    1px solid rgba(192, 132, 252, 0.18);
+
+  opacity: 0;
+  transform: translateY(12px);
+
+  max-height: 0;
+  overflow: hidden;
+
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    max-height 0.4s ease;
+}
+
+.ability-box.show {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+
+  max-height: 180px;
+
+  animation:
+    abilityGlow 1.2s ease;
+}
+
+@keyframes abilityGlow {
+
+  0% {
+    box-shadow:
+      0 0 0 rgba(192, 132, 252, 0);
+  }
+
+  50% {
+    box-shadow:
+      0 0 30px rgba(192, 132, 252, 0.35);
+  }
+
+  100% {
+    box-shadow:
+      0 0 0 rgba(192, 132, 252, 0);
+  }
+
+}
+
+.ability-icon {
+  font-size: 30px;
+}
+
+.ability-box span {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  opacity: 0.6;
+}
+
+.ability-box h3 {
+  margin: 3px 0;
+}
+
+.ability-box p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: 0.7;
+}
+
+
+/* =========================================
+   PET META
+========================================= */
+
+.pet-meta {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 10px;
+
+  margin-top: 15px;
+}
+
+.pet-meta div {
+  padding: 10px;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.05);
+}
+
+.pet-meta span {
+  display: block;
+
+  font-size: 10px;
+
+  opacity: 0.5;
+}
+
+.pet-meta b {
+  display: block;
+
+  margin-top: 3px;
+
+  font-size: 13px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 760px) {
+
+  .pet-modal {
+    padding: 10px;
+  }
+
+  .pet-details {
+    grid-template-columns: 1fr;
+
+    max-height: 94vh;
+
+    border-radius: 20px;
+  }
+
+  .pet-details-left {
+    padding: 25px 25px 10px;
+  }
+
+  .pet-art-box {
+    max-width: 250px;
+  }
+
+  .pet-details-right {
+    padding: 20px 25px 30px;
+  }
+
+  .pet-details-right h2 {
+    font-size: 30px;
+  }
+
+  .close-pet {
+    top: 10px;
+    right: 10px;
+  }
+
+}
