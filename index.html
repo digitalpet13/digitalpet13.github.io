@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -110,31 +109,9 @@
       <h2>Featured Pets</h2>
     </div>
 
-    <div class="preview-grid">
+    <div id="petGrid" class="preview-grid">
 
-      <div class="preview-card">
-        <img src="./pet_pyron.jpg" alt="Pyron">
-        <h3>Pyron</h3>
-        <p>🔥 Fire • Epic</p>
-      </div>
-
-      <div class="preview-card">
-        <img src="./pet_aquos.jpg" alt="Aquos">
-        <h3>Aquos</h3>
-        <p>💧 Water • Rare</p>
-      </div>
-
-      <div class="preview-card">
-        <img src="./pet_lunara.jpg" alt="Lunara">
-        <h3>Lunara</h3>
-        <p>🌙 Moon • Epic</p>
-      </div>
-
-      <div class="preview-card">
-        <img src="./pet_voltik.jpg" alt="Voltik">
-        <h3>Voltik</h3>
-        <p>⚡ Electric • Epic</p>
-      </div>
+      <!-- Pets are loaded from pets.js -->
 
     </div>
 
@@ -184,6 +161,173 @@
 
 </main>
 
+
+<!-- ============================= -->
+<!-- PET DETAILS MODAL -->
+<!-- ============================= -->
+
+<div id="petModal" class="pet-modal">
+
+  <div class="pet-modal-backdrop" onclick="closePetDetails()"></div>
+
+  <div class="pet-details">
+
+    <button class="close-pet" onclick="closePetDetails()">
+      ✕
+    </button>
+
+    <div class="pet-details-left">
+
+      <div id="petRarityGlow" class="pet-art-box">
+
+        <img
+          id="detailPetImage"
+          src=""
+          alt="Pet"
+        >
+
+        <div id="detailRarity" class="rarity-badge">
+          EPIC
+        </div>
+
+      </div>
+
+      <div class="pet-element">
+        <span id="detailElementIcon">🔥</span>
+        <span id="detailElement">Fire</span>
+      </div>
+
+    </div>
+
+
+    <div class="pet-details-right">
+
+      <span class="details-label">
+        DIGITAL PET
+      </span>
+
+      <h2 id="detailName">
+        Pyron
+      </h2>
+
+      <p id="detailDescription" class="pet-description">
+        A powerful digital creature.
+      </p>
+
+
+      <div class="stats-title">
+        <span>⚔️</span>
+        <h3>Ability Stats</h3>
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-header">
+          <span>❤️ HP</span>
+          <b id="hpValue">0</b>
+        </div>
+
+        <div class="stat-bar">
+          <div id="hpBar" class="stat-fill"></div>
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-header">
+          <span>⚔️ Attack</span>
+          <b id="attackValue">0</b>
+        </div>
+
+        <div class="stat-bar">
+          <div id="attackBar" class="stat-fill"></div>
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-header">
+          <span>🛡️ Defense</span>
+          <b id="defenseValue">0</b>
+        </div>
+
+        <div class="stat-bar">
+          <div id="defenseBar" class="stat-fill"></div>
+        </div>
+
+      </div>
+
+
+      <div class="stat">
+
+        <div class="stat-header">
+          <span>⚡ Speed</span>
+          <b id="speedValue">0</b>
+        </div>
+
+        <div class="stat-bar">
+          <div id="speedBar" class="stat-fill"></div>
+        </div>
+
+      </div>
+
+
+      <button
+        id="abilityButton"
+        class="ability-button"
+        onclick="showAbility()"
+      >
+        ✨ View Special Ability
+      </button>
+
+
+      <div id="abilityBox" class="ability-box">
+
+        <div class="ability-icon">
+          ✨
+        </div>
+
+        <div>
+          <span>SPECIAL ABILITY</span>
+
+          <h3 id="abilityName">
+            —
+          </h3>
+
+          <p id="abilityDescription">
+            —
+          </p>
+        </div>
+
+      </div>
+
+
+      <div class="pet-meta">
+
+        <div>
+          <span>Generation</span>
+          <b id="detailGeneration">Gen 1</b>
+        </div>
+
+        <div>
+          <span>Rarity</span>
+          <b id="detailRarityText">Epic</b>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+
+
 <footer>
 
   <div>
@@ -200,6 +344,9 @@
 
 </footer>
 
+
+<script src="./pets.js"></script>
+
 <script>
 
 function signInWithPi() {
@@ -211,6 +358,7 @@ function signInWithPi() {
   );
 
 }
+
 
 function openProfile() {
 
