@@ -631,10 +631,10 @@ function openPet(index) {
 
   if (abilityBox) {
 
-    abilityBox.style.display =
-      "none";
+  abilityBox.style.display =
+    "flex";
 
-  }
+}
 
 
   /* CREATE / UPDATE BUY BUTTON */
