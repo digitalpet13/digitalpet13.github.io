@@ -1,8 +1,14 @@
 /* =========================================================
    DIGITAL PET MARKETPLACE
    CLEAN PET MARKETPLACE SYSTEM
+
    PET DATA + SEARCH + CATEGORY + DETAILS
    PI TESTNET PURCHASE + BATTLE + BREED
+
+   TEST PETS:
+   8 ORIGINAL + 14 NEW = 22 PETS
+
+   All pet images are in the repository ROOT.
    ========================================================= */
 
 const RENDER_BACKEND =
@@ -14,6 +20,10 @@ const RENDER_BACKEND =
    ========================================================= */
 
 const pets = [
+
+  /* =======================================================
+     ORIGINAL PETS
+     ======================================================= */
 
   {
     name: "Aquos",
@@ -165,6 +175,277 @@ const pets = [
     abilityName: "Cyclone Dash",
     abilityDescription:
       "Creates a powerful cyclone while rapidly moving around the enemy."
+  },
+
+
+  /* =======================================================
+     NEW TEST PETS
+     ======================================================= */
+
+  {
+    name: "Aero-Vyn",
+    image: "aero-vyn.png",
+    element: "🌪️ Wind",
+    category: "Wind",
+    rarity: "Epic",
+    price: 1,
+    hp: 112,
+    attack: 91,
+    defense: 72,
+    speed: 108,
+    generation: "Gen 1",
+    description:
+      "A swift aerial creature that commands powerful currents of wind.",
+    abilityName: "Sky Tempest",
+    abilityDescription:
+      "Summons a violent wind burst that increases speed and deals heavy damage."
+  },
+
+  {
+    name: "Breeze-Lynx",
+    image: "breeze-lynx.png",
+    element: "🌪️ Wind",
+    category: "Wind",
+    rarity: "Rare",
+    price: 1,
+    hp: 105,
+    attack: 82,
+    defense: 70,
+    speed: 112,
+    generation: "Gen 1",
+    description:
+      "A graceful wind hunter known for its incredible agility.",
+    abilityName: "Gale Pounce",
+    abilityDescription:
+      "Leaps forward with the force of a gale, gaining a powerful speed advantage."
+  },
+
+  {
+    name: "Frost-Fox",
+    image: "frost-fox.png",
+    element: "❄️ Ice",
+    category: "Ice",
+    rarity: "Epic",
+    price: 1,
+    hp: 118,
+    attack: 89,
+    defense: 78,
+    speed: 94,
+    generation: "Gen 1",
+    description:
+      "A mysterious frost fox capable of freezing the battlefield.",
+    abilityName: "Frozen Fang",
+    abilityDescription:
+      "Infuses its attack with freezing energy and slows the opponent."
+  },
+
+  {
+    name: "Golden-Scarab",
+    image: "golden-scarab.png",
+    element: "✨ Light",
+    category: "Light",
+    rarity: "Legendary",
+    price: 1,
+    hp: 135,
+    attack: 86,
+    defense: 108,
+    speed: 68,
+    generation: "Gen 1",
+    description:
+      "A legendary golden guardian protected by ancient energy.",
+    abilityName: "Golden Barrier",
+    abilityDescription:
+      "Creates a radiant barrier that greatly strengthens its defense."
+  },
+
+  {
+    name: "Lava-Whelp",
+    image: "lava-whelp.png",
+    element: "🔥 Fire",
+    category: "Fire",
+    rarity: "Epic",
+    price: 1,
+    hp: 128,
+    attack: 102,
+    defense: 70,
+    speed: 76,
+    generation: "Gen 1",
+    description:
+      "A young volcanic beast filled with unstable fiery energy.",
+    abilityName: "Lava Burst",
+    abilityDescription:
+      "Releases molten energy in a powerful explosive attack."
+  },
+
+  {
+    name: "Luna-Fin",
+    image: "luna-fin.png",
+    element: "🌙 Moon",
+    category: "Moon",
+    rarity: "Rare",
+    price: 1,
+    hp: 116,
+    attack: 78,
+    defense: 82,
+    speed: 91,
+    generation: "Gen 1",
+    description:
+      "A moonlit aquatic creature that swims through mystical energy.",
+    abilityName: "Lunar Wave",
+    abilityDescription:
+      "Creates a wave of moon energy that restores strength and damages enemies."
+  },
+
+  {
+    name: "Luna-Ria",
+    image: "luna-ria.png",
+    element: "🌙 Moon",
+    category: "Moon",
+    rarity: "Epic",
+    price: 1,
+    hp: 121,
+    attack: 94,
+    defense: 76,
+    speed: 96,
+    generation: "Gen 1",
+    description:
+      "A rare moon creature surrounded by powerful celestial energy.",
+    abilityName: "Moonfall",
+    abilityDescription:
+      "Calls down concentrated moon energy for a devastating magical strike."
+  },
+
+  {
+    name: "Moon-Foal",
+    image: "moon-foal.png",
+    element: "🌙 Moon",
+    category: "Moon",
+    rarity: "Rare",
+    price: 1,
+    hp: 110,
+    attack: 80,
+    defense: 79,
+    speed: 99,
+    generation: "Gen 1",
+    description:
+      "A swift celestial foal that travels beneath the moonlight.",
+    abilityName: "Moon Sprint",
+    abilityDescription:
+      "Uses lunar energy to dramatically increase movement speed."
+  },
+
+  {
+    name: "Moon-Lux",
+    image: "moon-lux.png",
+    element: "✨ Light",
+    category: "Light",
+    rarity: "Legendary",
+    price: 1,
+    hp: 125,
+    attack: 98,
+    defense: 88,
+    speed: 102,
+    generation: "Gen 1",
+    description:
+      "A radiant celestial pet carrying concentrated lunar light.",
+    abilityName: "Lunar Radiance",
+    abilityDescription:
+      "Releases brilliant lunar light that damages enemies and strengthens defense."
+  },
+
+  {
+    name: "Moon-Moth",
+    image: "moon-moth.png",
+    element: "🌙 Moon",
+    category: "Moon",
+    rarity: "Epic",
+    price: 1,
+    hp: 108,
+    attack: 87,
+    defense: 73,
+    speed: 106,
+    generation: "Gen 1",
+    description:
+      "A mystical moth that glides silently through moonlit skies.",
+    abilityName: "Dream Dust",
+    abilityDescription:
+      "Releases enchanted dust that weakens the opponent while increasing evasion."
+  },
+
+  {
+    name: "Moon-Shade",
+    image: "moon-shade.png",
+    element: "🌑 Shadow",
+    category: "Shadow",
+    rarity: "Legendary",
+    price: 1,
+    hp: 112,
+    attack: 105,
+    defense: 71,
+    speed: 109,
+    generation: "Gen 1",
+    description:
+      "A mysterious lunar shadow creature that strikes from darkness.",
+    abilityName: "Eclipse Strike",
+    abilityDescription:
+      "Combines moonlight and shadow into an extremely fast critical attack."
+  },
+
+  {
+    name: "Moos-Deer",
+    image: "moos-deer.png",
+    element: "🌿 Nature",
+    category: "Nature",
+    rarity: "Rare",
+    price: 1,
+    hp: 138,
+    attack: 76,
+    defense: 94,
+    speed: 67,
+    generation: "Gen 1",
+    description:
+      "A powerful forest guardian with tremendous natural endurance.",
+    abilityName: "Forest Guard",
+    abilityDescription:
+      "Draws energy from nature to reinforce defense and recover HP."
+  },
+
+  {
+    name: "Moss-Ling",
+    image: "moss-ling.png",
+    element: "🌿 Nature",
+    category: "Nature",
+    rarity: "Rare",
+    price: 1,
+    hp: 130,
+    attack: 72,
+    defense: 91,
+    speed: 73,
+    generation: "Gen 1",
+    description:
+      "A small forest creature protected by thick layers of living moss.",
+    abilityName: "Moss Regeneration",
+    abilityDescription:
+      "Regenerates HP using natural moss energy during battle."
+  },
+
+  {
+    name: "Night-Howl",
+    image: "night-howl.png",
+    element: "🌑 Shadow",
+    category: "Shadow",
+    rarity: "Epic",
+    price: 1,
+    hp: 115,
+    attack: 99,
+    defense: 69,
+    speed: 103,
+    generation: "Gen 1",
+    description:
+      "A fierce night hunter whose howl echoes through the darkness.",
+    abilityName: "Midnight Howl",
+    abilityDescription:
+      "Unleashes a terrifying howl that boosts attack and overwhelms the enemy."
   }
 
 ];
@@ -398,213 +679,141 @@ function openPet(index) {
     document.getElementById("abilityBox");
 
 
-  /* =======================================================
-     PET IMAGE
-     ======================================================= */
+  /* PET IMAGE */
 
   if (image) {
-
-    image.src =
-      selectedPet.image;
-
-    image.alt =
-      selectedPet.name;
-
+    image.src = selectedPet.image;
+    image.alt = selectedPet.name;
   }
 
 
-  /* =======================================================
-     NAME
-     ======================================================= */
+  /* NAME */
 
   if (name) {
-
-    name.textContent =
-      selectedPet.name;
-
+    name.textContent = selectedPet.name;
   }
 
 
-  /* =======================================================
-     DESCRIPTION
-     ======================================================= */
+  /* DESCRIPTION */
 
   if (description) {
-
     description.textContent =
       selectedPet.description;
-
   }
 
 
-  /* =======================================================
-     RARITY
-     ======================================================= */
+  /* RARITY */
 
   if (rarity) {
-
     rarity.textContent =
       selectedPet.rarity.toUpperCase();
-
   }
 
   if (rarityText) {
-
     rarityText.textContent =
       selectedPet.rarity;
-
   }
 
 
-  /* =======================================================
-     ELEMENT
-     ======================================================= */
+  /* ELEMENT */
 
   const elementParts =
     selectedPet.element.split(" ");
 
   if (element) {
-
     element.textContent =
       elementParts.slice(1).join(" ");
-
   }
 
   if (elementIcon) {
-
     elementIcon.textContent =
       elementParts[0];
-
   }
 
 
-  /* =======================================================
-     GENERATION
-     ======================================================= */
+  /* GENERATION */
 
   if (generation) {
-
     generation.textContent =
       selectedPet.generation;
-
   }
 
 
-  /* =======================================================
-     STATS
-     ======================================================= */
+  /* STATS */
 
   if (hpValue) {
-
     hpValue.textContent =
       selectedPet.hp;
-
   }
 
   if (attackValue) {
-
     attackValue.textContent =
       selectedPet.attack;
-
   }
 
   if (defenseValue) {
-
     defenseValue.textContent =
       selectedPet.defense;
-
   }
 
   if (speedValue) {
-
     speedValue.textContent =
       selectedPet.speed;
-
   }
 
 
-  /* =======================================================
-     STAT BARS
-     ======================================================= */
+  /* STAT BARS */
 
   if (hpBar) {
-
     hpBar.style.width =
       Math.min(selectedPet.hp, 150) / 150 * 100 + "%";
-
   }
 
   if (attackBar) {
-
     attackBar.style.width =
       Math.min(selectedPet.attack, 150) / 150 * 100 + "%";
-
   }
 
   if (defenseBar) {
-
     defenseBar.style.width =
       Math.min(selectedPet.defense, 150) / 150 * 100 + "%";
-
   }
 
   if (speedBar) {
-
     speedBar.style.width =
       Math.min(selectedPet.speed, 150) / 150 * 100 + "%";
-
   }
 
 
-  /* =======================================================
-     SPECIAL ABILITY
-     ======================================================= */
+  /* ABILITY */
 
   if (abilityName) {
-
     abilityName.textContent =
       selectedPet.abilityName;
-
   }
 
   if (abilityDescription) {
-
     abilityDescription.textContent =
       selectedPet.abilityDescription;
-
   }
 
   if (abilityBox) {
-
     abilityBox.classList.remove("show");
-
     abilityBox.style.display = "";
-
   }
 
 
-  /* =======================================================
-     BUY BUTTON
-     ======================================================= */
+  /* BUY BUTTON */
 
   createBuyButton();
 
 
-  /* =======================================================
-     OPEN MODAL
-     ======================================================= */
+  /* OPEN MODAL */
 
   if (modal) {
-
-    modal.style.display =
-      "flex";
-
+    modal.style.display = "flex";
     modal.classList.add("show");
-
-    document.body.classList.add(
-      "modal-open"
-    );
-
+    document.body.classList.add("modal-open");
   }
 
 }
@@ -618,16 +827,13 @@ function createBuyButton() {
 
   if (!selectedPet) return;
 
-
   const rightSide =
     document.querySelector(".pet-details-right");
 
   if (!rightSide) return;
 
-
   let buyButton =
     document.getElementById("buyPetButton");
-
 
   if (!buyButton) {
 
@@ -649,16 +855,12 @@ function createBuyButton() {
 
   }
 
-
   buyButton.innerHTML =
     `🛒 Buy ${selectedPet.name} — ${selectedPet.price} π`;
 
-
   buyButton.onclick =
     function() {
-
       buyPet(selectedPet);
-
     };
 
 }
@@ -674,7 +876,6 @@ function showAbility() {
     document.getElementById("abilityBox");
 
   if (!abilityBox) return;
-
 
   abilityBox.classList.add("show");
 
@@ -693,7 +894,6 @@ function closePetDetails() {
   const modal =
     document.getElementById("petModal");
 
-
   if (modal) {
 
     modal.classList.remove("show");
@@ -703,11 +903,9 @@ function closePetDetails() {
 
   }
 
-
   document.body.classList.remove(
     "modal-open"
   );
-
 
   selectedPet = null;
 
@@ -719,9 +917,7 @@ function closePetDetails() {
    ========================================================= */
 
 function closePet() {
-
   closePetDetails();
-
 }
 
 
@@ -732,11 +928,6 @@ function closePet() {
 async function buyPet(pet) {
 
   if (!pet) return;
-
-
-  /* =======================================================
-     CHECK PI USER
-     ======================================================= */
 
   if (
     typeof piUser === "undefined" ||
@@ -750,11 +941,6 @@ async function buyPet(pet) {
     return;
 
   }
-
-
-  /* =======================================================
-     CHECK PI SDK
-     ======================================================= */
 
   if (
     typeof piInitialized === "undefined" ||
@@ -770,7 +956,6 @@ async function buyPet(pet) {
 
   }
 
-
   if (
     typeof Pi === "undefined"
   ) {
@@ -783,11 +968,6 @@ async function buyPet(pet) {
 
   }
 
-
-  /* =======================================================
-     CONFIRM PURCHASE
-     ======================================================= */
-
   const confirmed =
     confirm(
       `🛒 BUY PET\n\n` +
@@ -797,15 +977,12 @@ async function buyPet(pet) {
       `Continue with Pi Testnet payment?`
     );
 
-
   if (!confirmed) return;
-
 
   const buyButton =
     document.getElementById(
       "buyPetButton"
     );
-
 
   if (buyButton) {
 
@@ -816,11 +993,6 @@ async function buyPet(pet) {
       "⏳ Opening Pi payment...";
 
   }
-
-
-  /* =======================================================
-     PAYMENT DATA
-     ======================================================= */
 
   const paymentData = {
 
@@ -849,15 +1021,7 @@ async function buyPet(pet) {
   };
 
 
-  /* =======================================================
-     PI PAYMENT CALLBACKS
-     ======================================================= */
-
   const callbacks = {
-
-    /* -----------------------------------------------------
-       SERVER APPROVAL
-       ----------------------------------------------------- */
 
     onReadyForServerApproval:
       async function(paymentId) {
@@ -866,7 +1030,6 @@ async function buyPet(pet) {
           "Pi payment ready for approval:",
           paymentId
         );
-
 
         const response =
           await fetch(
@@ -888,10 +1051,8 @@ async function buyPet(pet) {
             }
           );
 
-
         const data =
           await response.json();
-
 
         if (!response.ok) {
 
@@ -907,7 +1068,6 @@ async function buyPet(pet) {
 
         }
 
-
         console.log(
           "Pi payment approved:",
           data
@@ -915,10 +1075,6 @@ async function buyPet(pet) {
 
       },
 
-
-    /* -----------------------------------------------------
-       SERVER COMPLETION
-       ----------------------------------------------------- */
 
     onReadyForServerCompletion:
       async function(
@@ -931,7 +1087,6 @@ async function buyPet(pet) {
           paymentId,
           txid
         );
-
 
         const response =
           await fetch(
@@ -958,10 +1113,8 @@ async function buyPet(pet) {
             }
           );
 
-
         const data =
           await response.json();
-
 
         if (!response.ok) {
 
@@ -977,12 +1130,10 @@ async function buyPet(pet) {
 
         }
 
-
         console.log(
           "Pi payment completed:",
           data
         );
-
 
         alert(
           `✅ PURCHASE SUCCESSFUL!\n\n` +
@@ -990,7 +1141,6 @@ async function buyPet(pet) {
           `Paid: ${pet.price} π\n` +
           `Transaction: ${txid}`
         );
-
 
         if (buyButton) {
 
@@ -1005,10 +1155,6 @@ async function buyPet(pet) {
       },
 
 
-    /* -----------------------------------------------------
-       CANCEL
-       ----------------------------------------------------- */
-
     onCancel:
       function(paymentId) {
 
@@ -1016,7 +1162,6 @@ async function buyPet(pet) {
           "Payment cancelled:",
           paymentId
         );
-
 
         if (buyButton) {
 
@@ -1028,17 +1173,12 @@ async function buyPet(pet) {
 
         }
 
-
         alert(
           "❌ Payment cancelled."
         );
 
       },
 
-
-    /* -----------------------------------------------------
-       ERROR
-       ----------------------------------------------------- */
 
     onError:
       function(error, payment) {
@@ -1049,7 +1189,6 @@ async function buyPet(pet) {
           payment
         );
 
-
         if (buyButton) {
 
           buyButton.disabled =
@@ -1060,7 +1199,6 @@ async function buyPet(pet) {
 
         }
 
-
         alert(
           "❌ Pi payment could not be completed.\n\n" +
           "Please try again."
@@ -1070,10 +1208,6 @@ async function buyPet(pet) {
 
   };
 
-
-  /* =======================================================
-     START PI PAYMENT
-     ======================================================= */
 
   try {
 
@@ -1089,7 +1223,6 @@ async function buyPet(pet) {
       error
     );
 
-
     if (buyButton) {
 
       buyButton.disabled =
@@ -1099,7 +1232,6 @@ async function buyPet(pet) {
         `🛒 Buy ${pet.name} — ${pet.price} π`;
 
     }
-
 
     alert(
       "❌ Unable to start the Pi payment.\n\n" +
@@ -1127,7 +1259,6 @@ function battlePet() {
 
   }
 
-
   const opponents =
     pets.filter(
       function(pet) {
@@ -1135,7 +1266,6 @@ function battlePet() {
           selectedPet.name;
       }
     );
-
 
   if (opponents.length === 0) {
 
@@ -1147,7 +1277,6 @@ function battlePet() {
 
   }
 
-
   const opponent =
     opponents[
       Math.floor(
@@ -1156,24 +1285,20 @@ function battlePet() {
       )
     ];
 
-
   const playerPower =
     selectedPet.attack +
     selectedPet.defense +
     selectedPet.speed;
-
 
   const opponentPower =
     opponent.attack +
     opponent.defense +
     opponent.speed;
 
-
   const winner =
     playerPower >= opponentPower
       ? selectedPet.name
       : opponent.name;
-
 
   alert(
 
@@ -1214,7 +1339,6 @@ function breedPet() {
 
   }
 
-
   alert(
 
     "🧬 BREEDING\n\n" +
@@ -1244,9 +1368,7 @@ window.addEventListener(
         "petModal"
       );
 
-
     if (!modal) return;
-
 
     if (
       event.target === modal ||
