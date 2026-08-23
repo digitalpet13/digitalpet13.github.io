@@ -473,7 +473,143 @@ let currentCategory = "All";
    DISPLAY PETS
    ========================================================= */
 
+/* =========================================================
+   DIGITAL PET MARKETPLACE
+   MARKETPLACE DISPLAY
+   TEMPORARILY SHOW ONLY THE 8 CLEAN ORIGINAL PETS
+
+   The other pets remain in the pets array.
+   They are only hidden from the Marketplace for now.
+   ========================================================= */
+
 function displayPets() {
+
+  if (!petGrid) return;
+
+  petGrid.innerHTML = "";
+
+  const searchText =
+    searchInput
+      ? searchInput.value.toLowerCase().trim()
+      : "";
+
+  /*
+   * ONLY THE ORIGINAL 8 PETS ARE DISPLAYED
+   * The newer test/card-style pets remain saved
+   * in the pets array but are not shown yet.
+   */
+
+  const marketplacePets =
+    pets.slice(0, 8);
+
+  const filteredPets =
+    marketplacePets.filter(function(pet) {
+
+      const categoryMatch =
+        currentCategory === "All" ||
+        pet.category === currentCategory;
+
+      const searchMatch =
+        pet.name.toLowerCase().includes(searchText) ||
+        pet.category.toLowerCase().includes(searchText) ||
+        pet.rarity.toLowerCase().includes(searchText);
+
+      return categoryMatch && searchMatch;
+
+    });
+
+
+  /* =======================================================
+     NO PETS FOUND
+  ======================================================= */
+
+  if (filteredPets.length === 0) {
+
+    petGrid.innerHTML = `
+      <div style="
+        grid-column:1/-1;
+        text-align:center;
+        padding:50px 20px;
+        color:#9da7bd;
+      ">
+
+        <div style="font-size:45px;">
+          🐾
+        </div>
+
+        <h3>
+          No pets found
+        </h3>
+
+        <p>
+          Try another category or search.
+        </p>
+
+      </div>
+    `;
+
+    return;
+  }
+
+
+  /* =======================================================
+     CREATE PET CARDS
+  ======================================================= */
+
+  filteredPets.forEach(function(pet) {
+
+    const originalIndex =
+      pets.indexOf(pet);
+
+    const card =
+      document.createElement("div");
+
+    card.className =
+      "pet-card";
+
+
+    card.innerHTML = `
+
+      <img
+        src="${pet.image}"
+        alt="${pet.name}"
+        onerror="this.style.display='none'"
+      >
+
+      <h3>
+        ${pet.name}
+      </h3>
+
+      <p>
+        ${pet.element}
+      </p>
+
+      <p>
+        ⭐ ${pet.rarity}
+      </p>
+
+      <p>
+        🟣 ${pet.price} π
+      </p>
+
+    `;
+
+
+    card.addEventListener(
+      "click",
+      function() {
+
+        openPet(originalIndex);
+
+      }
+    );
+
+
+    petGrid.appendChild(card);
+
+  });
+
+}
 
   if (!petGrid) return;
 
