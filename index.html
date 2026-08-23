@@ -23,714 +23,671 @@
 <body>
 
 
-<header class="topbar">
+<!-- =====================================================
+     HOME / LANDING PAGE
+===================================================== -->
 
-  <div class="brand">
+<section id="landingPage" class="landing-page">
+
+  <div class="landing-glow"></div>
+
+  <div class="landing-content">
 
     <img
       src="./page-logo.png"
+      class="landing-logo"
       alt="Digital Pet Marketplace"
     >
 
-    <div>
+    <h1>
+      DIGITAL PET
+      <span>MARKETPLACE</span>
+    </h1>
 
-      <strong>Digital Pet</strong>
+    <p class="landing-subtitle">
+      Collect • Battle • Breed • Trade
+    </p>
 
-      <span>Marketplace</span>
 
-    </div>
-
-  </div>
-
-
-  <nav>
-
-    <a href="#home">
-      Home
-    </a>
-
-    <a href="#marketplace">
-      Marketplace
-    </a>
-
-    <a href="#pets">
-      My Pets
-    </a>
-
-    <a href="#battle">
-      Battle
-    </a>
-
-    <a href="#breed">
-      Breed
-    </a>
-
-  </nav>
-
-</header>
-
-
-
-<main id="home">
-
-
-  <!-- ============================= -->
-  <!-- HERO -->
-  <!-- ============================= -->
-
-  <section class="hero">
-
-
-    <div class="hero-logo">
-
-      <img
-        src="./page-logo.png"
-        alt="Shiba Pi Digital Pet"
-      >
-
-    </div>
-
-
-    <div class="hero-content">
-
-
-      <div class="badge">
-
-        🐾 DIGITAL PET UNIVERSE
-
-      </div>
-
-
-      <h1>
-
-        DIGITAL PET
-
-        <span>
-          MARKETPLACE
-        </span>
-
-      </h1>
-
-
-      <p class="hero-text">
-
-        Discover • Collect • Battle • Breed
-
-      </p>
-
-
-      <p class="description">
-
-        Build your collection of unique digital pets,
-        discover rare creatures, battle other players,
-        and create new generations.
-
-      </p>
-
-
-      <!-- ============================= -->
-      <!-- PI LOGIN -->
-      <!-- ============================= -->
-
-      <button
-        id="piLoginButton"
-        class="pi-login"
-        onclick="signInWithPi()"
-      >
-
-        <span class="pi-symbol">
-          π
-        </span>
-
-        <span id="piLoginText">
-          Sign in with Pi
-        </span>
-
-      </button>
-
-
-      <p class="login-note">
-
-        Connect your Pi account to enter the marketplace.
-
-      </p>
-
-
-    </div>
-
-  </section>
-
-
-
-  <!-- ============================= -->
-  <!-- FEATURES -->
-  <!-- ============================= -->
-
-  <section class="features">
-
-
-    <div class="feature-card">
-
-      <div class="feature-icon">
-        🐾
-      </div>
-
-      <h3>
-        Collect
-      </h3>
-
-      <p>
-        Collect unique pets from small creatures to giant beasts.
-      </p>
-
-    </div>
-
-
-
-    <div class="feature-card">
-
-      <div class="feature-icon">
-        ⚔️
-      </div>
-
-      <h3>
-        Battle
-      </h3>
-
-      <p>
-        Let your pet challenge another pet in the battle arena.
-      </p>
-
-    </div>
-
-
-
-    <div class="feature-card">
-
-      <div class="feature-icon">
-        🧬
-      </div>
-
-      <h3>
-        Breed
-      </h3>
-
-      <p>
-        Create new generations with inherited traits.
-      </p>
-
-    </div>
-
-
-
-    <div class="feature-card">
-
-      <div class="feature-icon">
-        🛒
-      </div>
-
-      <h3>
-        Trade
-      </h3>
-
-      <p>
-        Discover pets available in the digital marketplace.
-      </p>
-
-    </div>
-
-
-  </section>
-
-
-
-  <!-- ============================= -->
-  <!-- FEATURED PETS -->
-  <!-- ============================= -->
-
-  <section
-    id="marketplace"
-    class="market-section"
-  >
-
-
-    <div class="section-title">
-
-      <span>
-        🔥
-      </span>
-
-      <h2>
-        Featured Pets
-      </h2>
-
-    </div>
-
-
-    <div
-      id="petGrid"
-      class="preview-grid"
-    >
-
-      <!-- Pets are loaded from pets.js -->
-
-    </div>
-
-
-  </section>
-
-
-
-  <!-- ============================= -->
-  <!-- PROFILE -->
-  <!-- ============================= -->
-
-  <section class="profile-section">
-
-
-    <div class="profile-card">
-
-
-      <div class="profile-avatar">
-        👤
-      </div>
-
-
-      <div class="profile-info">
-
-        <span class="small-label">
-          PLAYER PROFILE
-        </span>
-
-        <h2 id="profileName">
-          Pi Pioneer
-        </h2>
-
-        <p>
-          🐾 Pet Collector
-        </p>
-
-      </div>
-
-
-      <button
-        class="profile-btn"
-        onclick="openProfile()"
-      >
-
-        View Profile
-
-      </button>
-
-
-    </div>
-
-
-
-    <!-- ============================= -->
-    <!-- PI WALLET -->
-    <!-- ============================= -->
-
-    <div class="wallet-card">
-
-
-      <div class="wallet-title">
-
-        <span>
-          🟣
-        </span>
-
-        <h3>
-          Pi Wallet
-        </h3>
-
-      </div>
-
-
-      <p class="small-label">
-        AVAILABLE BALANCE
-      </p>
-
-
-      <div class="balance">
-
-        <span id="piBalance">
-          —
-        </span>
-
-        <b>
-          π
-        </b>
-
-      </div>
-
-
-      <p
-        id="walletNote"
-        class="wallet-note"
-      >
-
-        Balance will appear after Pi authentication.
-
-      </p>
-
-
-    </div>
-
-
-  </section>
-
-
-</main>
-
-
-
-<!-- ============================= -->
-<!-- PET DETAILS MODAL -->
-<!-- ============================= -->
-
-<div
-  id="petModal"
-  class="pet-modal"
->
-
-
-  <div
-    class="pet-modal-backdrop"
-    onclick="closePetDetails()"
-  ></div>
-
-
-  <div class="pet-details">
-
+    <!-- SIGN UP -->
 
     <button
-      class="close-pet"
-      onclick="closePetDetails()"
+      id="signUpButton"
+      class="landing-signup"
+      onclick="signUpWithPi()"
     >
 
-      ✕
+      <span class="landing-pi-icon">
+        π
+      </span>
+
+      <span>
+        Sign Up with Pi
+      </span>
 
     </button>
 
 
+    <!-- LOGIN -->
 
-    <div class="pet-details-left">
+    <button
+      id="loginButton"
+      class="landing-login"
+      onclick="signInWithPi()"
+    >
+
+      <span>
+        🟣
+      </span>
+
+      <span id="loginButtonText">
+        Log in with Pi
+      </span>
+
+    </button>
 
 
-      <div
-        id="petRarityGlow"
-        class="pet-art-box"
+    <p class="landing-note">
+      Pi Testnet • Secure authentication • No passphrase requested
+    </p>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     MARKETPLACE
+     Hidden until Pi login
+===================================================== -->
+
+<div
+  id="marketplaceApp"
+  class="marketplace-app"
+  style="display:none;"
+>
+
+
+  <!-- ===================================================
+       TOP BAR
+  =================================================== -->
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <img
+        src="./page-logo.png"
+        alt="Digital Pet"
       >
 
+      <div>
 
-        <img
-          id="detailPetImage"
-          src=""
-          alt="Pet"
-        >
+        <strong>
+          Digital Pet
+        </strong>
 
-
-        <div
-          id="detailRarity"
-          class="rarity-badge"
-        >
-
-          EPIC
-
-        </div>
-
-
-      </div>
-
-
-
-      <div class="pet-element">
-
-
-        <span id="detailElementIcon">
-          🔥
+        <span>
+          Marketplace
         </span>
 
-
-        <span id="detailElement">
-          Fire
-        </span>
-
-
       </div>
-
 
     </div>
 
 
-
-    <div class="pet-details-right">
-
-
-      <span class="details-label">
-        DIGITAL PET
-      </span>
-
-
-      <h2 id="detailName">
-        Pyron
-      </h2>
-
-
-      <p
-        id="detailDescription"
-        class="pet-description"
-      >
-
-        A powerful digital creature.
-
-      </p>
-
-
-
-      <div class="stats-title">
-
-        <span>
-          ⚔️
-        </span>
-
-        <h3>
-          Ability Stats
-        </h3>
-
-      </div>
-
-
-
-      <!-- HP -->
-
-      <div class="stat">
-
-
-        <div class="stat-header">
-
-          <span>
-            ❤️ HP
-          </span>
-
-          <b id="hpValue">
-            0
-          </b>
-
-        </div>
-
-
-        <div class="stat-bar">
-
-          <div
-            id="hpBar"
-            class="stat-fill"
-          ></div>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- ATTACK -->
-
-      <div class="stat">
-
-
-        <div class="stat-header">
-
-          <span>
-            ⚔️ Attack
-          </span>
-
-          <b id="attackValue">
-            0
-          </b>
-
-        </div>
-
-
-        <div class="stat-bar">
-
-          <div
-            id="attackBar"
-            class="stat-fill"
-          ></div>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- DEFENSE -->
-
-      <div class="stat">
-
-
-        <div class="stat-header">
-
-          <span>
-            🛡️ Defense
-          </span>
-
-          <b id="defenseValue">
-            0
-          </b>
-
-        </div>
-
-
-        <div class="stat-bar">
-
-          <div
-            id="defenseBar"
-            class="stat-fill"
-          ></div>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- SPEED -->
-
-      <div class="stat">
-
-
-        <div class="stat-header">
-
-          <span>
-            ⚡ Speed
-          </span>
-
-          <b id="speedValue">
-            0
-          </b>
-
-        </div>
-
-
-        <div class="stat-bar">
-
-          <div
-            id="speedBar"
-            class="stat-fill"
-          ></div>
-
-        </div>
-
-
-      </div>
-
-
-
-      <!-- SPECIAL ABILITY -->
+    <nav>
+
+      <a href="#marketplace">
+        Marketplace
+      </a>
+
+      <a href="#profileSection">
+        My Pets
+      </a>
+
+      <a href="#battle">
+        Battle
+      </a>
+
+      <a href="#breed">
+        Breed
+      </a>
 
       <button
-        id="abilityButton"
-        class="ability-button"
-        onclick="showAbility()"
+        class="logout-btn"
+        onclick="logoutFromPi()"
       >
-
-        ✨ View Special Ability
-
+        Logout
       </button>
 
+    </nav>
+
+  </header>
 
 
-      <div
-        id="abilityBox"
-        class="ability-box"
-      >
 
+  <!-- ===================================================
+       MARKETPLACE HEADER
+  =================================================== -->
 
-        <div class="ability-icon">
-          ✨
-        </div>
+  <main>
 
+    <section
+      id="marketplace"
+      class="marketplace"
+    >
+
+      <div class="marketplace-header">
 
         <div>
 
-          <span>
-            SPECIAL ABILITY
+          <span class="section-label">
+            DIGITAL PET UNIVERSE
           </span>
 
+          <h2>
+            🛒 Pet Marketplace
+          </h2>
 
-          <h3 id="abilityName">
-            —
-          </h3>
+        </div>
 
 
-          <p id="abilityDescription">
-            —
+        <div class="search-box">
+
+          🔍
+
+          <input
+            id="petSearch"
+            type="search"
+            placeholder="Search pets..."
+          >
+
+        </div>
+
+      </div>
+
+
+
+      <!-- =================================================
+           CATEGORIES
+      ================================================= -->
+
+      <div class="categories">
+
+        <button
+          class="category active"
+          data-element="All"
+        >
+          🐾 All
+        </button>
+
+        <button
+          class="category"
+          data-element="Water"
+        >
+          💧 Water
+        </button>
+
+        <button
+          class="category"
+          data-element="Nature"
+        >
+          🌿 Nature
+        </button>
+
+        <button
+          class="category"
+          data-element="Moon"
+        >
+          🌙 Moon
+        </button>
+
+        <button
+          class="category"
+          data-element="Fire"
+        >
+          🔥 Fire
+        </button>
+
+        <button
+          class="category"
+          data-element="Shadow"
+        >
+          🌑 Shadow
+        </button>
+
+        <button
+          class="category"
+          data-element="Earth"
+        >
+          🪨 Earth
+        </button>
+
+        <button
+          class="category"
+          data-element="Electric"
+        >
+          ⚡ Electric
+        </button>
+
+        <button
+          class="category"
+          data-element="Wind"
+        >
+          🌪️ Wind
+        </button>
+
+      </div>
+
+
+
+      <!-- =================================================
+           PET GRID
+      ================================================= -->
+
+      <div
+        id="petGrid"
+        class="pet-grid"
+      >
+
+      </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         PROFILE
+    ================================================= -->
+
+    <section
+      id="profileSection"
+      class="profile-section"
+    >
+
+      <div class="profile-card">
+
+        <div class="profile-avatar">
+          👤
+        </div>
+
+        <div class="profile-info">
+
+          <span class="small-label">
+            PLAYER PROFILE
+          </span>
+
+          <h2 id="profileName">
+            Pi Pioneer
+          </h2>
+
+          <p>
+            🐾 Pet Collector
           </p>
 
         </div>
 
+        <button
+          class="profile-btn"
+          onclick="openProfile()"
+        >
+          View Profile
+        </button>
 
       </div>
 
 
 
-      <!-- META -->
+      <!-- WALLET -->
 
-      <div class="pet-meta">
+      <div class="wallet-card">
 
-
-        <div>
+        <div class="wallet-title">
 
           <span>
-            Generation
+            🟣
           </span>
 
-          <b id="detailGeneration">
-            Gen 1
+          <h3>
+            Pi Wallet
+          </h3>
+
+        </div>
+
+        <p class="small-label">
+          ACCOUNT STATUS
+        </p>
+
+        <div class="balance">
+
+          <span id="piBalance">
+            Connected
+          </span>
+
+          <b>
+            π
           </b>
 
         </div>
 
+        <p
+          id="walletNote"
+          class="wallet-note"
+        >
+          Pi Testnet account connected.
+        </p>
 
-        <div>
+      </div>
 
-          <span>
-            Rarity
+    </section>
+
+
+  </main>
+
+
+
+  <!-- ===================================================
+       PET DETAILS MODAL
+  =================================================== -->
+
+  <div
+    id="petModal"
+    class="pet-modal"
+  >
+
+    <div
+      class="pet-modal-backdrop"
+      onclick="closePetDetails()"
+    ></div>
+
+
+    <div class="pet-details">
+
+      <button
+        class="close-pet"
+        onclick="closePetDetails()"
+      >
+        ✕
+      </button>
+
+
+      <!-- PET IMAGE -->
+
+      <div class="pet-details-left">
+
+        <div class="pet-art-box">
+
+          <img
+            id="detailPetImage"
+            src=""
+            alt="Pet"
+          >
+
+          <div
+            id="detailRarity"
+            class="rarity-badge"
+          >
+            EPIC
+          </div>
+
+        </div>
+
+
+        <div class="pet-element">
+
+          <span id="detailElementIcon">
+            🔥
           </span>
 
-          <b id="detailRarityText">
-            Epic
-          </b>
+          <span id="detailElement">
+            Fire
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- PET INFORMATION -->
+
+      <div class="pet-details-right">
+
+        <span class="details-label">
+          DIGITAL PET
+        </span>
+
+
+        <h2 id="detailName">
+          Pyron
+        </h2>
+
+
+        <p
+          id="detailDescription"
+          class="pet-description"
+        >
+          A powerful digital creature.
+        </p>
+
+
+        <div class="stats-title">
+
+          <span>
+            ⚔️
+          </span>
+
+          <h3>
+            Ability Stats
+          </h3>
+
+        </div>
+
+
+
+        <!-- HP -->
+
+        <div class="stat">
+
+          <div class="stat-header">
+
+            <span>
+              ❤️ HP
+            </span>
+
+            <b id="hpValue">
+              0
+            </b>
+
+          </div>
+
+          <div class="stat-bar">
+
+            <div
+              id="hpBar"
+              class="stat-fill"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ATTACK -->
+
+        <div class="stat">
+
+          <div class="stat-header">
+
+            <span>
+              ⚔️ Attack
+            </span>
+
+            <b id="attackValue">
+              0
+            </b>
+
+          </div>
+
+          <div class="stat-bar">
+
+            <div
+              id="attackBar"
+              class="stat-fill"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- DEFENSE -->
+
+        <div class="stat">
+
+          <div class="stat-header">
+
+            <span>
+              🛡️ Defense
+            </span>
+
+            <b id="defenseValue">
+              0
+            </b>
+
+          </div>
+
+          <div class="stat-bar">
+
+            <div
+              id="defenseBar"
+              class="stat-fill"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- SPEED -->
+
+        <div class="stat">
+
+          <div class="stat-header">
+
+            <span>
+              ⚡ Speed
+            </span>
+
+            <b id="speedValue">
+              0
+            </b>
+
+          </div>
+
+          <div class="stat-bar">
+
+            <div
+              id="speedBar"
+              class="stat-fill"
+            ></div>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- ABILITY -->
+
+        <button
+          id="abilityButton"
+          class="ability-button"
+          onclick="showAbility()"
+        >
+          ✨ View Special Ability
+        </button>
+
+
+        <div
+          id="abilityBox"
+          class="ability-box"
+        >
+
+          <div class="ability-icon">
+            ✨
+          </div>
+
+          <div>
+
+            <span>
+              SPECIAL ABILITY
+            </span>
+
+            <h3 id="abilityName">
+              —
+            </h3>
+
+            <p id="abilityDescription">
+              —
+            </p>
+
+          </div>
+
+        </div>
+
+
+
+        <!-- META -->
+
+        <div class="pet-meta">
+
+          <div>
+
+            <span>
+              Generation
+            </span>
+
+            <b id="detailGeneration">
+              Gen 1
+            </b>
+
+          </div>
+
+
+          <div>
+
+            <span>
+              Rarity
+            </span>
+
+            <b id="detailRarityText">
+              Epic
+            </b>
+
+          </div>
 
         </div>
 
 
       </div>
-
 
     </div>
-
 
   </div>
 
 
-</div>
 
+  <!-- ===================================================
+       FOOTER
+  =================================================== -->
 
-
-<!-- ============================= -->
-<!-- FOOTER -->
-<!-- ============================= -->
-
-<footer>
-
-
-  <div>
+  <footer>
 
     🐾
 
@@ -738,38 +695,32 @@
       Digital Pet Marketplace
     </strong>
 
-  </div>
+    <p>
+      Your Pets • Your Journey • Your Pi Universe
+    </p>
+
+    <small>
+      Pi Testnet environment • No passphrase requested
+    </small>
+
+  </footer>
 
 
-  <p>
-
-    Your Pets • Your Journey • Your Pi Universe
-
-  </p>
-
-
-  <small>
-
-    Testnet environment • No passphrase requested
-
-  </small>
-
-
-</footer>
+</div>
 
 
 
-<!-- ============================= -->
-<!-- PET DATA -->
-<!-- ============================= -->
+<!-- =====================================================
+     PET DATA
+===================================================== -->
 
 <script src="./pets.js"></script>
 
 
 
-<!-- ============================= -->
-<!-- PI AUTHENTICATION SYSTEM -->
-<!-- ============================= -->
+<!-- =====================================================
+     PI AUTHENTICATION
+===================================================== -->
 
 <script>
 
@@ -778,9 +729,9 @@ let piAccessToken = null;
 let piInitialized = false;
 
 
-/* ================================= */
-/* INITIALIZE PI SDK */
-/* ================================= */
+/* =====================================================
+   INITIALIZE PI
+===================================================== */
 
 async function initializePi() {
 
@@ -788,114 +739,234 @@ async function initializePi() {
 
     if (!window.Pi) {
 
-      console.error("Pi SDK was not loaded.");
+      console.error(
+        "Pi SDK was not loaded."
+      );
 
       return false;
     }
 
+
     await Pi.init({
+
       version: "2.0",
+
       sandbox: true
+
     });
+
 
     piInitialized = true;
 
-    console.log("Pi SDK initialized successfully.");
+    console.log(
+      "Pi SDK initialized."
+    );
 
     return true;
+
 
   } catch (error) {
 
     console.error(
-      "Pi SDK initialization error:",
+      "Pi initialization error:",
       error
     );
 
     return false;
+
   }
+
 }
 
 
-/* ================================= */
-/* SIGN IN WITH PI */
-/* ================================= */
+
+/* =====================================================
+   SHOW MARKETPLACE
+===================================================== */
+
+function showMarketplace() {
+
+  const landing =
+    document.getElementById(
+      "landingPage"
+    );
+
+  const app =
+    document.getElementById(
+      "marketplaceApp"
+    );
+
+
+  if (landing) {
+
+    landing.style.display =
+      "none";
+
+  }
+
+
+  if (app) {
+
+    app.style.display =
+      "block";
+
+  }
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: "smooth"
+
+  });
+
+
+  if (
+    typeof displayPets === "function"
+  ) {
+
+    displayPets();
+
+  }
+
+}
+
+
+
+/* =====================================================
+   SIGN UP WITH PI
+===================================================== */
+
+async function signUpWithPi() {
+
+  await authenticateWithPi(
+    "signup"
+  );
+
+}
+
+
+
+/* =====================================================
+   LOGIN WITH PI
+===================================================== */
 
 async function signInWithPi() {
 
-  const button =
-    document.getElementById("piLoginButton");
+  await authenticateWithPi(
+    "login"
+  );
 
-  const buttonText =
-    document.getElementById("piLoginText");
+}
+
+
+
+/* =====================================================
+   PI AUTHENTICATION
+===================================================== */
+
+async function authenticateWithPi(mode) {
+
+  const loginButton =
+    document.getElementById(
+      "loginButton"
+    );
+
+  const loginText =
+    document.getElementById(
+      "loginButtonText"
+    );
+
+  const signUpButton =
+    document.getElementById(
+      "signUpButton"
+    );
+
 
   try {
 
-    button.disabled = true;
+    if (loginButton) {
 
-    buttonText.textContent =
-      "Connecting to Pi...";
+      loginButton.disabled =
+        true;
+
+    }
 
 
-    /* ============================= */
-    /* INITIALIZE SDK */
-    /* ============================= */
+    if (signUpButton) {
+
+      signUpButton.disabled =
+        true;
+
+    }
+
+
+    if (loginText) {
+
+      loginText.textContent =
+        "Connecting to Pi...";
+
+    }
+
+
+    /* INITIALIZE */
 
     if (!piInitialized) {
 
       const initialized =
         await initializePi();
 
+
       if (!initialized) {
 
         throw new Error(
           "Pi SDK is not available."
         );
+
       }
+
     }
 
 
-    /* ============================= */
-    /* IMPORTANT */
-    /* ============================= */
-    /*
-       username = get Pi username
-       payments = REQUIRED for Pi payments
-    */
+    /* PI SCOPES */
 
     const scopes = [
+
       "username",
+
       "payments"
+
     ];
 
 
-    /* ============================= */
     /* INCOMPLETE PAYMENT */
-    /* ============================= */
 
-    function onIncompletePaymentFound(payment) {
+    function onIncompletePaymentFound(
+      payment
+    ) {
 
       console.log(
-        "Incomplete payment found:",
+        "Incomplete Pi payment:",
         payment
       );
 
     }
 
 
-    /* ============================= */
     /* AUTHENTICATE */
-    /* ============================= */
 
     const auth =
       await Pi.authenticate(
+
         scopes,
+
         onIncompletePaymentFound
+
       );
 
 
-    /* ============================= */
     /* SAVE USER */
-    /* ============================= */
 
     piUser =
       auth.user;
@@ -910,36 +981,27 @@ async function signInWithPi() {
     );
 
 
-    /* ============================= */
-    /* PROFILE */
-    /* ============================= */
+    /* UPDATE PROFILE */
+
+    const profileName =
+      document.getElementById(
+        "profileName"
+      );
+
 
     if (
+      profileName &&
       piUser &&
       piUser.username
     ) {
 
-      const profileName =
-        document.getElementById(
-          "profileName"
-        );
+      profileName.textContent =
+        piUser.username;
 
-      if (profileName) {
-
-        profileName.textContent =
-          piUser.username;
-      }
     }
 
 
-    /* ============================= */
-    /* WALLET STATUS */
-    /* ============================= */
-
-    const balance =
-      document.getElementById(
-        "piBalance"
-      );
+    /* UPDATE WALLET */
 
     const walletNote =
       document.getElementById(
@@ -947,53 +1009,17 @@ async function signInWithPi() {
       );
 
 
-    if (balance) {
-
-      balance.textContent =
-        "Connected";
-    }
-
-
     if (walletNote) {
 
       walletNote.textContent =
-        "Pi payments enabled.";
+        "Pi Testnet account connected. Payments enabled.";
+
     }
 
 
-    /* ============================= */
-    /* LOGIN BUTTON */
-    /* ============================= */
+    /* SHOW MARKETPLACE */
 
-    buttonText.textContent =
-      "Connected as " +
-      piUser.username;
-
-
-    /* ============================= */
-    /* MARKETPLACE */
-    /* ============================= */
-
-    const marketplace =
-      document.getElementById(
-        "marketplace"
-      );
-
-
-    if (marketplace) {
-
-      setTimeout(
-        function() {
-
-          marketplace.scrollIntoView({
-            behavior: "smooth",
-            block: "start"
-          });
-
-        },
-        500
-      );
-    }
+    showMarketplace();
 
 
   } catch (error) {
@@ -1004,55 +1030,179 @@ async function signInWithPi() {
     );
 
 
-    button.disabled = false;
+    if (loginButton) {
 
-    buttonText.textContent =
-      "Sign in with Pi";
+      loginButton.disabled =
+        false;
+
+    }
+
+
+    if (signUpButton) {
+
+      signUpButton.disabled =
+        false;
+
+    }
+
+
+    if (loginText) {
+
+      loginText.textContent =
+        "Log in with Pi";
+
+    }
 
 
     alert(
+
       "🟣 Pi authentication was not completed.\n\n" +
-      (error.message ||
-       "Please try again in Pi Browser.")
+
+      (
+        error.message ||
+        "Please try again using Pi Browser."
+      )
+
     );
+
   }
+
 }
 
 
-/* ================================= */
-/* PLAYER PROFILE */
-/* ================================= */
+
+/* =====================================================
+   LOGOUT
+===================================================== */
+
+function logoutFromPi() {
+
+  piUser = null;
+
+  piAccessToken = null;
+
+
+  const landing =
+    document.getElementById(
+      "landingPage"
+    );
+
+  const app =
+    document.getElementById(
+      "marketplaceApp"
+    );
+
+
+  if (app) {
+
+    app.style.display =
+      "none";
+
+  }
+
+
+  if (landing) {
+
+    landing.style.display =
+      "flex";
+
+  }
+
+
+  const loginButton =
+    document.getElementById(
+      "loginButton"
+    );
+
+
+  const loginText =
+    document.getElementById(
+      "loginButtonText"
+    );
+
+
+  const signUpButton =
+    document.getElementById(
+      "signUpButton"
+    );
+
+
+  if (loginButton) {
+
+    loginButton.disabled =
+      false;
+
+  }
+
+
+  if (signUpButton) {
+
+    signUpButton.disabled =
+      false;
+
+  }
+
+
+  if (loginText) {
+
+    loginText.textContent =
+      "Log in with Pi";
+
+  }
+
+
+  window.scrollTo({
+
+    top: 0,
+
+    behavior: "smooth"
+
+  });
+
+}
+
+
+
+/* =====================================================
+   PROFILE
+===================================================== */
 
 function openProfile() {
 
   if (!piUser) {
 
     alert(
-      "🟣 Please sign in with Pi first."
+      "🟣 Please log in with Pi first."
     );
 
     return;
+
   }
 
 
   alert(
 
-    "👤 Player Profile\n\n" +
+    "👤 PLAYER PROFILE\n\n" +
 
     "Pi Username: " +
+
     piUser.username +
 
     "\n\n" +
 
-    "🐾 Pet Collector"
+    "🐾 Pet Collector\n\n" +
+
+    "🟣 Pi Testnet Connected"
 
   );
+
 }
 
 
-/* ================================= */
-/* START PI SDK */
-/* ================================= */
+
+/* =====================================================
+   START PI SDK
+===================================================== */
 
 window.addEventListener(
   "load",
@@ -1064,3 +1214,8 @@ window.addEventListener(
 );
 
 </script>
+
+
+</body>
+
+</html>
