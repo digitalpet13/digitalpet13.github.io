@@ -198,7 +198,6 @@ function displayPets() {
       ? searchInput.value.toLowerCase().trim()
       : "";
 
-
   const filteredPets =
     pets.filter(function(pet) {
 
@@ -206,20 +205,10 @@ function displayPets() {
         currentCategory === "All" ||
         pet.category === currentCategory;
 
-
       const searchMatch =
-        pet.name
-          .toLowerCase()
-          .includes(searchText) ||
-
-        pet.category
-          .toLowerCase()
-          .includes(searchText) ||
-
-        pet.rarity
-          .toLowerCase()
-          .includes(searchText);
-
+        pet.name.toLowerCase().includes(searchText) ||
+        pet.category.toLowerCase().includes(searchText) ||
+        pet.rarity.toLowerCase().includes(searchText);
 
       return categoryMatch && searchMatch;
 
@@ -235,19 +224,9 @@ function displayPets() {
         padding:50px 20px;
         color:#9da7bd;
       ">
-
-        <div style="font-size:45px;">
-          🐾
-        </div>
-
-        <h3>
-          No pets found
-        </h3>
-
-        <p>
-          Try another category or search.
-        </p>
-
+        <div style="font-size:45px;">🐾</div>
+        <h3>No pets found</h3>
+        <p>Try another category or search.</p>
       </div>
     `;
 
@@ -260,48 +239,32 @@ function displayPets() {
     const originalIndex =
       pets.indexOf(pet);
 
-
     const card =
       document.createElement("div");
 
-
-    card.className =
-      "pet-card";
-
+    card.className = "pet-card";
 
     card.innerHTML = `
-
       <img
         src="${pet.image}"
         alt="${pet.name}"
         onerror="this.style.display='none'"
       >
 
-      <h3>
-        ${pet.name}
-      </h3>
+      <h3>${pet.name}</h3>
 
-      <p>
-        ${pet.element}
-      </p>
+      <p>${pet.element}</p>
 
-      <p>
-        ⭐ ${pet.rarity}
-      </p>
+      <p>⭐ ${pet.rarity}</p>
 
-      <p>
-        🟣 ${pet.price} π
-      </p>
-
+      <p>🟣 ${pet.price} π</p>
     `;
 
 
     card.addEventListener(
       "click",
       function() {
-
         openPet(originalIndex);
-
       }
     );
 
@@ -329,19 +292,14 @@ categoryButtons.forEach(function(button) {
 
       categoryButtons.forEach(
         function(btn) {
-
           btn.classList.remove("active");
-
         }
       );
 
-
       button.classList.add("active");
-
 
       currentCategory =
         button.dataset.element || "All";
-
 
       displayPets();
 
@@ -360,9 +318,7 @@ if (searchInput) {
   searchInput.addEventListener(
     "input",
     function() {
-
       displayPets();
-
     }
   );
 
@@ -375,9 +331,7 @@ if (searchInput) {
 
 function openPet(index) {
 
-  selectedPet =
-    pets[index];
-
+  selectedPet = pets[index];
 
   if (!selectedPet) return;
 
@@ -385,80 +339,59 @@ function openPet(index) {
   const modal =
     document.getElementById("petModal");
 
-
   const image =
     document.getElementById("detailPetImage");
-
 
   const name =
     document.getElementById("detailName");
 
-
   const description =
     document.getElementById("detailDescription");
-
 
   const rarity =
     document.getElementById("detailRarity");
 
-
   const rarityText =
     document.getElementById("detailRarityText");
-
 
   const element =
     document.getElementById("detailElement");
 
-
   const elementIcon =
     document.getElementById("detailElementIcon");
-
 
   const generation =
     document.getElementById("detailGeneration");
 
-
   const hpValue =
     document.getElementById("hpValue");
-
 
   const attackValue =
     document.getElementById("attackValue");
 
-
   const defenseValue =
     document.getElementById("defenseValue");
-
 
   const speedValue =
     document.getElementById("speedValue");
 
-
   const hpBar =
     document.getElementById("hpBar");
-
 
   const attackBar =
     document.getElementById("attackBar");
 
-
   const defenseBar =
     document.getElementById("defenseBar");
-
 
   const speedBar =
     document.getElementById("speedBar");
 
-
   const abilityName =
     document.getElementById("abilityName");
 
-
   const abilityDescription =
-    document.getElementById(
-      "abilityDescription"
-    );
-
+    document.getElementById("abilityDescription");
 
   const abilityBox =
     document.getElementById("abilityBox");
@@ -467,48 +400,36 @@ function openPet(index) {
   /* PET IMAGE */
 
   if (image) {
-
-    image.src =
-      selectedPet.image;
-
+    image.src = selectedPet.image;
+    image.alt = selectedPet.name;
   }
 
 
   /* NAME */
 
   if (name) {
-
-    name.textContent =
-      selectedPet.name;
-
+    name.textContent = selectedPet.name;
   }
 
 
   /* DESCRIPTION */
 
   if (description) {
-
     description.textContent =
       selectedPet.description;
-
   }
 
 
   /* RARITY */
 
   if (rarity) {
-
     rarity.textContent =
       selectedPet.rarity.toUpperCase();
-
   }
 
-
   if (rarityText) {
-
     rarityText.textContent =
       selectedPet.rarity;
-
   }
 
 
@@ -524,7 +445,6 @@ function openPet(index) {
 
   }
 
-
   if (elementIcon) {
 
     elementIcon.textContent =
@@ -536,44 +456,31 @@ function openPet(index) {
   /* GENERATION */
 
   if (generation) {
-
     generation.textContent =
       selectedPet.generation;
-
   }
 
 
   /* STATS */
 
   if (hpValue) {
-
     hpValue.textContent =
       selectedPet.hp;
-
   }
-
 
   if (attackValue) {
-
     attackValue.textContent =
       selectedPet.attack;
-
   }
-
 
   if (defenseValue) {
-
     defenseValue.textContent =
       selectedPet.defense;
-
   }
 
-
   if (speedValue) {
-
     speedValue.textContent =
       selectedPet.speed;
-
   }
 
 
@@ -586,7 +493,6 @@ function openPet(index) {
 
   }
 
-
   if (attackBar) {
 
     attackBar.style.width =
@@ -594,14 +500,12 @@ function openPet(index) {
 
   }
 
-
   if (defenseBar) {
 
     defenseBar.style.width =
       Math.min(selectedPet.defense, 150) / 150 * 100 + "%";
 
   }
-
 
   if (speedBar) {
 
@@ -611,7 +515,9 @@ function openPet(index) {
   }
 
 
-  /* ABILITY */
+  /* =======================================================
+     ABILITY
+     ======================================================= */
 
   if (abilityName) {
 
@@ -619,7 +525,6 @@ function openPet(index) {
       selectedPet.abilityName;
 
   }
-
 
   if (abilityDescription) {
 
@@ -629,15 +534,22 @@ function openPet(index) {
   }
 
 
+  /*
+   IMPORTANT:
+   Hide ability when a new pet opens.
+   The CSS uses .show to reveal it.
+  */
+
   if (abilityBox) {
 
-  abilityBox.style.display =
-    "flex";
+    abilityBox.classList.remove("show");
 
-}
+    abilityBox.style.display = "";
+
+  }
 
 
-  /* CREATE / UPDATE BUY BUTTON */
+  /* BUY BUTTON */
 
   createBuyButton();
 
@@ -646,8 +558,16 @@ function openPet(index) {
 
   if (modal) {
 
-    modal.style.display =
-      "block";
+    /*
+     Support both modal systems:
+     old .modal and new .pet-modal
+    */
+
+    modal.style.display = "flex";
+
+    modal.classList.add("show");
+
+    document.body.classList.add("modal-open");
 
   }
 
@@ -664,18 +584,13 @@ function createBuyButton() {
 
 
   const rightSide =
-    document.querySelector(
-      ".pet-details-right"
-    );
-
+    document.querySelector(".pet-details-right");
 
   if (!rightSide) return;
 
 
   let buyButton =
-    document.getElementById(
-      "buyPetButton"
-    );
+    document.getElementById("buyPetButton");
 
 
   if (!buyButton) {
@@ -720,16 +635,19 @@ function createBuyButton() {
 function showAbility() {
 
   const abilityBox =
-    document.getElementById(
-      "abilityBox"
-    );
-
+    document.getElementById("abilityBox");
 
   if (!abilityBox) return;
 
 
-  abilityBox.style.display =
-    "flex";
+  /*
+   This is the important fix.
+   The CSS reveals the box with .show.
+  */
+
+  abilityBox.classList.add("show");
+
+  abilityBox.style.display = "flex";
 
 }
 
@@ -741,21 +659,24 @@ function showAbility() {
 function closePetDetails() {
 
   const modal =
-    document.getElementById(
-      "petModal"
-    );
+    document.getElementById("petModal");
 
 
   if (modal) {
 
-    modal.style.display =
-      "none";
+    modal.classList.remove("show");
+
+    modal.style.display = "none";
 
   }
 
 
-  selectedPet =
-    null;
+  document.body.classList.remove(
+    "modal-open"
+  );
+
+
+  selectedPet = null;
 
 }
 
@@ -763,9 +684,7 @@ function closePetDetails() {
 /* Compatibility with older HTML */
 
 function closePet() {
-
   closePetDetails();
-
 }
 
 
@@ -777,12 +696,6 @@ async function buyPet(pet) {
 
   if (!pet) return;
 
-
-  /*
-  Make sure Pi account is authenticated.
-  piUser and piInitialized are created
-  in index.html.
-  */
 
   if (
     typeof piUser === "undefined" ||
@@ -836,23 +749,16 @@ async function buyPet(pet) {
     );
 
 
-  if (!confirmed) {
-
-    return;
-
-  }
+  if (!confirmed) return;
 
 
   const buyButton =
-    document.getElementById(
-      "buyPetButton"
-    );
+    document.getElementById("buyPetButton");
 
 
   if (buyButton) {
 
-    buyButton.disabled =
-      true;
+    buyButton.disabled = true;
 
     buyButton.textContent =
       "⏳ Opening Pi payment...";
@@ -890,9 +796,7 @@ async function buyPet(pet) {
   const callbacks = {
 
 
-    /* =====================================
-       SERVER APPROVAL
-    ===================================== */
+    /* SERVER APPROVAL */
 
     onReadyForServerApproval:
       async function(paymentId) {
@@ -916,10 +820,8 @@ async function buyPet(pet) {
               },
 
               body: JSON.stringify({
-
                 paymentId:
                   paymentId
-
               })
 
             }
@@ -953,9 +855,7 @@ async function buyPet(pet) {
       },
 
 
-    /* =====================================
-       SERVER COMPLETION
-    ===================================== */
+    /* SERVER COMPLETION */
 
     onReadyForServerCompletion:
       async function(
@@ -1021,8 +921,6 @@ async function buyPet(pet) {
         );
 
 
-        /* SUCCESS */
-
         alert(
           `✅ PURCHASE SUCCESSFUL!\n\n` +
           `${pet.name} is now purchased.\n\n` +
@@ -1030,8 +928,6 @@ async function buyPet(pet) {
           `Transaction: ${txid}`
         );
 
-
-        /* Restore button */
 
         if (buyButton) {
 
@@ -1046,9 +942,7 @@ async function buyPet(pet) {
       },
 
 
-    /* =====================================
-       CANCEL
-    ===================================== */
+    /* CANCEL */
 
     onCancel:
       function(paymentId) {
@@ -1077,9 +971,7 @@ async function buyPet(pet) {
       },
 
 
-    /* =====================================
-       ERROR
-    ===================================== */
+    /* ERROR */
 
     onError:
       function(error, payment) {
@@ -1272,7 +1164,7 @@ function breedPet() {
 
 
 /* =========================================================
-   CLOSE MODAL BY CLICKING OUTSIDE
+   CLOSE MODAL BY BACKDROP
    ========================================================= */
 
 window.addEventListener(
@@ -1280,15 +1172,41 @@ window.addEventListener(
   function(event) {
 
     const modal =
-      document.getElementById(
-        "petModal"
-      );
+      document.getElementById("petModal");
 
+
+    if (!modal) return;
+
+
+    /*
+     Close only when clicking the modal
+     background itself, not the details panel.
+    */
 
     if (
-      modal &&
-      event.target === modal
+      event.target === modal ||
+      event.target.classList.contains(
+        "pet-modal-backdrop"
+      )
     ) {
+
+      closePetDetails();
+
+    }
+
+  }
+);
+
+
+/* =========================================================
+   ESC KEY
+   ========================================================= */
+
+window.addEventListener(
+  "keydown",
+  function(event) {
+
+    if (event.key === "Escape") {
 
       closePetDetails();
 
