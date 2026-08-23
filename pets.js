@@ -1,6 +1,8 @@
 /* =========================================================
    DIGITAL PET MARKETPLACE
-   PET DATA + PET DETAILS + PI TESTNET BUY
+   CLEAN PET MARKETPLACE SYSTEM
+   PET DATA + SEARCH + CATEGORY + DETAILS
+   PI TESTNET PURCHASE + BATTLE + BREED
    ========================================================= */
 
 const RENDER_BACKEND =
@@ -169,7 +171,7 @@ const pets = [
 
 
 /* =========================================================
-   VARIABLES
+   MARKETPLACE VARIABLES
    ========================================================= */
 
 const petGrid =
@@ -177,6 +179,9 @@ const petGrid =
 
 const searchInput =
   document.getElementById("petSearch");
+
+const categoryButtons =
+  document.querySelectorAll(".category");
 
 let selectedPet = null;
 
@@ -277,12 +282,8 @@ function displayPets() {
 
 
 /* =========================================================
-   CATEGORY BUTTONS
+   CATEGORY FILTER
    ========================================================= */
-
-const categoryButtons =
-  document.querySelectorAll(".category");
-
 
 categoryButtons.forEach(function(button) {
 
@@ -397,94 +398,134 @@ function openPet(index) {
     document.getElementById("abilityBox");
 
 
-  /* PET IMAGE */
+  /* =======================================================
+     PET IMAGE
+     ======================================================= */
 
   if (image) {
-    image.src = selectedPet.image;
-    image.alt = selectedPet.name;
+
+    image.src =
+      selectedPet.image;
+
+    image.alt =
+      selectedPet.name;
+
   }
 
 
-  /* NAME */
+  /* =======================================================
+     NAME
+     ======================================================= */
 
   if (name) {
-    name.textContent = selectedPet.name;
+
+    name.textContent =
+      selectedPet.name;
+
   }
 
 
-  /* DESCRIPTION */
+  /* =======================================================
+     DESCRIPTION
+     ======================================================= */
 
   if (description) {
+
     description.textContent =
       selectedPet.description;
+
   }
 
 
-  /* RARITY */
+  /* =======================================================
+     RARITY
+     ======================================================= */
 
   if (rarity) {
+
     rarity.textContent =
       selectedPet.rarity.toUpperCase();
+
   }
 
   if (rarityText) {
+
     rarityText.textContent =
       selectedPet.rarity;
+
   }
 
 
-  /* ELEMENT */
+  /* =======================================================
+     ELEMENT
+     ======================================================= */
+
+  const elementParts =
+    selectedPet.element.split(" ");
 
   if (element) {
 
-    const parts =
-      selectedPet.element.split(" ");
-
     element.textContent =
-      parts.slice(1).join(" ");
+      elementParts.slice(1).join(" ");
 
   }
 
   if (elementIcon) {
 
     elementIcon.textContent =
-      selectedPet.element.split(" ")[0];
+      elementParts[0];
 
   }
 
 
-  /* GENERATION */
+  /* =======================================================
+     GENERATION
+     ======================================================= */
 
   if (generation) {
+
     generation.textContent =
       selectedPet.generation;
+
   }
 
 
-  /* STATS */
+  /* =======================================================
+     STATS
+     ======================================================= */
 
   if (hpValue) {
+
     hpValue.textContent =
       selectedPet.hp;
+
   }
 
   if (attackValue) {
+
     attackValue.textContent =
       selectedPet.attack;
+
   }
 
   if (defenseValue) {
+
     defenseValue.textContent =
       selectedPet.defense;
+
   }
 
   if (speedValue) {
+
     speedValue.textContent =
       selectedPet.speed;
+
   }
 
 
-  /* STAT BARS */
+  /* =======================================================
+     STAT BARS
+     ======================================================= */
 
   if (hpBar) {
 
@@ -516,7 +557,7 @@ function openPet(index) {
 
 
   /* =======================================================
-     ABILITY
+     SPECIAL ABILITY
      ======================================================= */
 
   if (abilityName) {
@@ -533,13 +574,6 @@ function openPet(index) {
 
   }
 
-
-  /*
-   IMPORTANT:
-   Hide ability when a new pet opens.
-   The CSS uses .show to reveal it.
-  */
-
   if (abilityBox) {
 
     abilityBox.classList.remove("show");
@@ -549,25 +583,27 @@ function openPet(index) {
   }
 
 
-  /* BUY BUTTON */
+  /* =======================================================
+     BUY BUTTON
+     ======================================================= */
 
   createBuyButton();
 
 
-  /* OPEN MODAL */
+  /* =======================================================
+     OPEN MODAL
+     ======================================================= */
 
   if (modal) {
 
-    /*
-     Support both modal systems:
-     old .modal and new .pet-modal
-    */
-
-    modal.style.display = "flex";
+    modal.style.display =
+      "flex";
 
     modal.classList.add("show");
 
-    document.body.classList.add("modal-open");
+    document.body.classList.add(
+      "modal-open"
+    );
 
   }
 
@@ -575,7 +611,7 @@ function openPet(index) {
 
 
 /* =========================================================
-   BUY BUTTON
+   CREATE BUY BUTTON
    ========================================================= */
 
 function createBuyButton() {
@@ -640,14 +676,10 @@ function showAbility() {
   if (!abilityBox) return;
 
 
-  /*
-   This is the important fix.
-   The CSS reveals the box with .show.
-  */
-
   abilityBox.classList.add("show");
 
-  abilityBox.style.display = "flex";
+  abilityBox.style.display =
+    "flex";
 
 }
 
@@ -666,7 +698,8 @@ function closePetDetails() {
 
     modal.classList.remove("show");
 
-    modal.style.display = "none";
+    modal.style.display =
+      "none";
 
   }
 
@@ -681,10 +714,14 @@ function closePetDetails() {
 }
 
 
-/* Compatibility with older HTML */
+/* =========================================================
+   OLD HTML COMPATIBILITY
+   ========================================================= */
 
 function closePet() {
+
   closePetDetails();
+
 }
 
 
@@ -696,6 +733,10 @@ async function buyPet(pet) {
 
   if (!pet) return;
 
+
+  /* =======================================================
+     CHECK PI USER
+     ======================================================= */
 
   if (
     typeof piUser === "undefined" ||
@@ -710,6 +751,10 @@ async function buyPet(pet) {
 
   }
 
+
+  /* =======================================================
+     CHECK PI SDK
+     ======================================================= */
 
   if (
     typeof piInitialized === "undefined" ||
@@ -739,6 +784,10 @@ async function buyPet(pet) {
   }
 
 
+  /* =======================================================
+     CONFIRM PURCHASE
+     ======================================================= */
+
   const confirmed =
     confirm(
       `🛒 BUY PET\n\n` +
@@ -753,18 +802,25 @@ async function buyPet(pet) {
 
 
   const buyButton =
-    document.getElementById("buyPetButton");
+    document.getElementById(
+      "buyPetButton"
+    );
 
 
   if (buyButton) {
 
-    buyButton.disabled = true;
+    buyButton.disabled =
+      true;
 
     buyButton.textContent =
       "⏳ Opening Pi payment...";
 
   }
 
+
+  /* =======================================================
+     PAYMENT DATA
+     ======================================================= */
 
   const paymentData = {
 
@@ -793,10 +849,15 @@ async function buyPet(pet) {
   };
 
 
+  /* =======================================================
+     PI PAYMENT CALLBACKS
+     ======================================================= */
+
   const callbacks = {
 
-
-    /* SERVER APPROVAL */
+    /* -----------------------------------------------------
+       SERVER APPROVAL
+       ----------------------------------------------------- */
 
     onReadyForServerApproval:
       async function(paymentId) {
@@ -855,7 +916,9 @@ async function buyPet(pet) {
       },
 
 
-    /* SERVER COMPLETION */
+    /* -----------------------------------------------------
+       SERVER COMPLETION
+       ----------------------------------------------------- */
 
     onReadyForServerCompletion:
       async function(
@@ -942,7 +1005,9 @@ async function buyPet(pet) {
       },
 
 
-    /* CANCEL */
+    /* -----------------------------------------------------
+       CANCEL
+       ----------------------------------------------------- */
 
     onCancel:
       function(paymentId) {
@@ -971,7 +1036,9 @@ async function buyPet(pet) {
       },
 
 
-    /* ERROR */
+    /* -----------------------------------------------------
+       ERROR
+       ----------------------------------------------------- */
 
     onError:
       function(error, payment) {
@@ -1003,6 +1070,10 @@ async function buyPet(pet) {
 
   };
 
+
+  /* =======================================================
+     START PI PAYMENT
+     ======================================================= */
 
   try {
 
@@ -1060,10 +1131,8 @@ function battlePet() {
   const opponents =
     pets.filter(
       function(pet) {
-
         return pet.name !==
           selectedPet.name;
-
       }
     );
 
@@ -1155,7 +1224,6 @@ function breedPet() {
     " is selected.\n\n" +
 
     "Choose another compatible pet " +
-
     "to create a new generation."
 
   );
@@ -1172,16 +1240,13 @@ window.addEventListener(
   function(event) {
 
     const modal =
-      document.getElementById("petModal");
+      document.getElementById(
+        "petModal"
+      );
 
 
     if (!modal) return;
 
-
-    /*
-     Close only when clicking the modal
-     background itself, not the details panel.
-    */
 
     if (
       event.target === modal ||
