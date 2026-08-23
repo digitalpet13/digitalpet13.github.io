@@ -506,8 +506,8 @@ function displayPets() {
     marketplacePets.filter(function(pet) {
 
       const categoryMatch =
-        currentCategory === "All" ||
-        pet.category === currentCategory;
+  currentCategory.toLowerCase() === "all" ||
+  pet.category.toLowerCase() === currentCategory.toLowerCase();
 
       const searchMatch =
         pet.name.toLowerCase().includes(searchText) ||
