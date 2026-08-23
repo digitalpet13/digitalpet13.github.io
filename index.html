@@ -773,13 +773,9 @@
 
 <script>
 
-
 let piUser = null;
-
 let piAccessToken = null;
-
 let piInitialized = false;
-
 
 
 /* ================================= */
@@ -788,54 +784,36 @@ let piInitialized = false;
 
 async function initializePi() {
 
-
   try {
-
 
     if (!window.Pi) {
 
-      console.error(
-        "Pi SDK was not loaded."
-      );
+      console.error("Pi SDK was not loaded.");
 
       return false;
-
     }
 
-
     await Pi.init({
-
-      version: "2.0"
-
+      version: "2.0",
+      sandbox: true
     });
-
 
     piInitialized = true;
 
-
-    console.log(
-      "Pi SDK initialized successfully."
-    );
-
+    console.log("Pi SDK initialized successfully.");
 
     return true;
 
-
   } catch (error) {
-
 
     console.error(
       "Pi SDK initialization error:",
       error
     );
 
-
     return false;
-
   }
-
 }
-
 
 
 /* ================================= */
@@ -844,75 +822,69 @@ async function initializePi() {
 
 async function signInWithPi() {
 
-
   const button =
-    document.getElementById(
-      "piLoginButton"
-    );
-
+    document.getElementById("piLoginButton");
 
   const buttonText =
-    document.getElementById(
-      "piLoginText"
-    );
-
+    document.getElementById("piLoginText");
 
   try {
 
-
     button.disabled = true;
-
 
     buttonText.textContent =
       "Connecting to Pi...";
 
 
-
-    /* Make sure SDK is initialized */
+    /* ============================= */
+    /* INITIALIZE SDK */
+    /* ============================= */
 
     if (!piInitialized) {
 
-
       const initialized =
         await initializePi();
-
 
       if (!initialized) {
 
         throw new Error(
           "Pi SDK is not available."
         );
-
       }
-
     }
 
 
-
-    /* ================================= */
-    /* PI AUTHENTICATION */
-    /* ================================= */
+    /* ============================= */
+    /* IMPORTANT */
+    /* ============================= */
+    /*
+       username = get Pi username
+       payments = REQUIRED for Pi payments
+    */
 
     const scopes = [
-      "username"
+      "username",
+      "payments"
     ];
 
 
+    /* ============================= */
+    /* INCOMPLETE PAYMENT */
+    /* ============================= */
 
-    function onIncompletePaymentFound(
-      payment
-    ) {
-
+    function onIncompletePaymentFound(payment) {
 
       console.log(
         "Incomplete payment found:",
         payment
       );
 
-
     }
 
 
+    /* ============================= */
+    /* AUTHENTICATE */
+    /* ============================= */
 
     const auth =
       await Pi.authenticate(
@@ -921,18 +893,15 @@ async function signInWithPi() {
       );
 
 
-
-    /* ================================= */
+    /* ============================= */
     /* SAVE USER */
-    /* ================================= */
+    /* ============================= */
 
     piUser =
       auth.user;
 
-
     piAccessToken =
       auth.accessToken;
-
 
 
     console.log(
@@ -941,44 +910,36 @@ async function signInWithPi() {
     );
 
 
-
-    /* ================================= */
-    /* UPDATE PROFILE */
-    /* ================================= */
+    /* ============================= */
+    /* PROFILE */
+    /* ============================= */
 
     if (
       piUser &&
       piUser.username
     ) {
 
-
       const profileName =
         document.getElementById(
           "profileName"
         );
 
-
       if (profileName) {
 
         profileName.textContent =
           piUser.username;
-
       }
-
-
     }
 
 
-
-    /* ================================= */
-    /* UPDATE WALLET STATUS */
-    /* ================================= */
+    /* ============================= */
+    /* WALLET STATUS */
+    /* ============================= */
 
     const balance =
       document.getElementById(
         "piBalance"
       );
-
 
     const walletNote =
       document.getElementById(
@@ -990,32 +951,28 @@ async function signInWithPi() {
 
       balance.textContent =
         "Connected";
-
     }
 
 
     if (walletNote) {
 
       walletNote.textContent =
-        "Pi account authenticated successfully.";
-
+        "Pi payments enabled.";
     }
 
 
-
-    /* ================================= */
-    /* UPDATE LOGIN BUTTON */
-    /* ================================= */
+    /* ============================= */
+    /* LOGIN BUTTON */
+    /* ============================= */
 
     buttonText.textContent =
       "Connected as " +
       piUser.username;
 
 
-
-    /* ================================= */
-    /* GO TO MARKETPLACE */
-    /* ================================= */
+    /* ============================= */
+    /* MARKETPLACE */
+    /* ============================= */
 
     const marketplace =
       document.getElementById(
@@ -1025,30 +982,21 @@ async function signInWithPi() {
 
     if (marketplace) {
 
-
       setTimeout(
-        function () {
-
+        function() {
 
           marketplace.scrollIntoView({
-
             behavior: "smooth",
-
             block: "start"
-
           });
-
 
         },
         500
       );
-
-
     }
 
 
   } catch (error) {
-
 
     console.error(
       "Pi authentication failed:",
@@ -1058,23 +1006,17 @@ async function signInWithPi() {
 
     button.disabled = false;
 
-
     buttonText.textContent =
       "Sign in with Pi";
 
 
     alert(
       "🟣 Pi authentication was not completed.\n\n" +
-      "Please make sure you are using Pi Browser " +
-      "and approve the Pi login request."
+      (error.message ||
+       "Please try again in Pi Browser.")
     );
-
-
   }
-
-
 }
-
 
 
 /* ================================= */
@@ -1083,19 +1025,14 @@ async function signInWithPi() {
 
 function openProfile() {
 
-
   if (!piUser) {
-
 
     alert(
       "🟣 Please sign in with Pi first."
     );
 
-
     return;
-
   }
-
 
 
   alert(
@@ -1103,7 +1040,6 @@ function openProfile() {
     "👤 Player Profile\n\n" +
 
     "Pi Username: " +
-
     piUser.username +
 
     "\n\n" +
@@ -1111,10 +1047,7 @@ function openProfile() {
     "🐾 Pet Collector"
 
   );
-
-
 }
-
 
 
 /* ================================= */
@@ -1123,17 +1056,11 @@ function openProfile() {
 
 window.addEventListener(
   "load",
-  function () {
+  function() {
 
     initializePi();
 
   }
 );
 
-
 </script>
-
-
-</body>
-
-</html>
