@@ -1428,3 +1428,253 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+/* =====================================================
+   LANDING PAGE
+===================================================== */
+
+.hidden {
+  display: none !important;
+}
+
+.landing-page {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px 20px;
+
+  background:
+    radial-gradient(
+      circle at top,
+      #30205c 0%,
+      #11131d 45%,
+      #08090f 100%
+    );
+}
+
+.landing-content {
+  width: 100%;
+  max-width: 480px;
+
+  text-align: center;
+}
+
+.landing-logo {
+  width: min(75vw, 330px);
+
+  max-height: 330px;
+
+  object-fit: contain;
+
+  border-radius: 30px;
+
+  margin-bottom: 25px;
+
+  filter:
+    drop-shadow(
+      0 20px 50px
+      rgba(140, 70, 255, 0.35)
+    );
+}
+
+.landing-content h1 {
+  margin: 0;
+
+  font-size: clamp(32px, 8vw, 58px);
+
+  line-height: 1;
+
+  letter-spacing: 2px;
+}
+
+.landing-content h2 {
+  margin: 8px 0 12px;
+
+  font-size: clamp(22px, 5vw, 34px);
+
+  color: #bd70ff;
+
+  letter-spacing: 3px;
+}
+
+.landing-content > p {
+  color: #aeb8ca;
+
+  margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   LANDING BUTTONS
+===================================================== */
+
+.landing-buttons {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 12px;
+
+  width: 100%;
+
+  max-width: 400px;
+
+  margin: auto;
+}
+
+.signup-button,
+.landing-login {
+  width: 100%;
+
+  min-height: 56px;
+
+  border-radius: 16px;
+
+  font-size: 16px;
+
+  font-weight: 800;
+
+  cursor: pointer;
+}
+
+.signup-button {
+  border: 1px solid #a86cff;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7b2cff,
+      #b14cff
+    );
+
+  color: white;
+
+  box-shadow:
+    0 10px 30px
+    rgba(130, 50, 255, 0.25);
+}
+
+.signup-button:hover {
+  transform: translateY(-2px);
+}
+
+.landing-login {
+  border: 2px solid #ffce45;
+
+  background:
+    linear-gradient(
+      90deg,
+      #7025e8,
+      #a52cff
+    );
+
+  color: white;
+}
+
+.landing-note {
+  margin-top: 25px !important;
+
+  font-size: 11px;
+
+  opacity: 0.55;
+}
+
+
+/* =====================================================
+   MARKETPLACE APP
+===================================================== */
+
+.marketplace-app {
+  min-height: 100vh;
+
+  background:
+    #10131a;
+}
+
+
+/* =====================================================
+   USER STATUS
+===================================================== */
+
+.user-status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  padding: 8px 12px;
+
+  border-radius: 20px;
+
+  background:
+    rgba(124, 58, 237, 0.15);
+
+  border:
+    1px solid
+    rgba(166, 91, 255, 0.35);
+
+  color: #d7c5ff;
+
+  font-size: 12px;
+}
+
+
+/* =====================================================
+   EMPTY MY PETS
+===================================================== */
+
+.empty-pets {
+  padding: 45px 20px;
+
+  text-align: center;
+
+  background:
+    #191e29;
+
+  border:
+    1px solid #30394d;
+
+  border-radius: 18px;
+}
+
+.empty-pets div {
+  font-size: 45px;
+}
+
+.empty-pets p {
+  color: #aeb8ca;
+}
+
+
+/* =====================================================
+   MOBILE LANDING
+===================================================== */
+
+@media (max-width: 500px) {
+
+  .landing-page {
+    padding: 20px;
+  }
+
+  .landing-logo {
+    width: 230px;
+    margin-bottom: 20px;
+  }
+
+  .landing-content h1 {
+    font-size: 36px;
+  }
+
+  .landing-content h2 {
+    font-size: 23px;
+  }
+
+  .user-status {
+    font-size: 10px;
+    padding: 7px 9px;
+  }
+
+}
