@@ -27,7 +27,8 @@
 
 
 <!-- =====================================================
-     HOME HEADER
+     DIGITAL PET MARKETPLACE
+     HEADER
 ===================================================== -->
 
 <header class="topbar">
@@ -118,9 +119,7 @@
 
 
       <p class="hero-text">
-
         Collect • Battle • Breed • Trade
-
       </p>
 
 
@@ -134,7 +133,7 @@
       </p>
 
 
-      <!-- SIGN UP -->
+      <!-- PI SIGN UP -->
 
       <button
         class="pi-login"
@@ -152,7 +151,7 @@
       </button>
 
 
-      <!-- LOGIN -->
+      <!-- PI LOGIN -->
 
       <button
         id="piLoginButton"
@@ -269,7 +268,7 @@
 
 
   <!-- =====================================================
-       MARKETPLACE
+       DIGITAL PET MARKETPLACE
   ===================================================== -->
 
   <section
@@ -281,22 +280,192 @@
     <div class="section-title">
 
       <span>
-        🔥
+        🛒
       </span>
 
       <h2>
-        Featured Pets
+        Digital Pet Marketplace
       </h2>
 
     </div>
 
+
+    <p class="market-subtitle">
+
+      Discover, filter and collect
+      unique Digital Pets.
+
+    </p>
+
+
+    <!-- ===================================================
+         SEARCH
+    =================================================== -->
+
+    <div class="market-controls">
+
+
+      <div class="pet-search-box">
+
+        <span>
+          🔎
+        </span>
+
+        <input
+          id="petSearch"
+          type="search"
+          placeholder="Search pets, element or rarity..."
+          autocomplete="off"
+        >
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- ===================================================
+         ELEMENT FILTERS
+    =================================================== -->
+
+    <div
+      id="petFilters"
+      class="pet-filters"
+    >
+
+
+      <button
+        type="button"
+        class="category active"
+        data-element="All"
+      >
+        🐾 All
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Wind"
+      >
+        🌪️ Wind
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Water"
+      >
+        💧 Water
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Nature"
+      >
+        🌿 Nature
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Fire"
+      >
+        🔥 Fire
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Earth"
+      >
+        🪨 Earth
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Electric"
+      >
+        ⚡ Electric
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Moon"
+      >
+        🌙 Moon
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Shadow"
+      >
+        🌑 Shadow
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Ice"
+      >
+        ❄️ Ice
+      </button>
+
+
+      <button
+        type="button"
+        class="category"
+        data-element="Light"
+      >
+        ✨ Light
+      </button>
+
+
+    </div>
+
+
+
+    <!-- ===================================================
+         PET COUNT
+    =================================================== -->
+
+    <div class="market-status">
+
+      <span>
+        🐾 Available Pets
+      </span>
+
+      <strong id="petCount">
+        0
+      </strong>
+
+    </div>
+
+
+
+    <!-- ===================================================
+         PET GRID
+    =================================================== -->
 
     <div
       id="petGrid"
       class="preview-grid"
     >
 
-      <!-- pets.js loads pets here -->
+      <!-- pets.js displays pets here -->
 
     </div>
 
@@ -314,8 +483,6 @@
     class="profile-section"
   >
 
-
-    <!-- PROFILE CARD -->
 
     <div class="profile-card">
 
@@ -423,16 +590,13 @@
 
       <div class="wallet-title">
 
-
         <span class="wallet-icon">
           π
         </span>
 
-
         <h3>
           Pi Wallet
         </h3>
-
 
       </div>
 
@@ -444,16 +608,13 @@
 
       <div class="balance">
 
-
         <span id="piBalance">
           —
         </span>
 
-
         <b>
           π
         </b>
-
 
       </div>
 
@@ -521,6 +682,7 @@
     <button
       class="close-pet"
       onclick="closePetDetails()"
+      aria-label="Close"
     >
 
       ✕
@@ -528,7 +690,10 @@
     </button>
 
 
-    <!-- PET IMAGE -->
+
+    <!-- =================================================
+         PET IMAGE
+    ================================================= -->
 
     <div class="pet-details-left">
 
@@ -550,9 +715,7 @@
           id="detailRarity"
           class="rarity-badge"
         >
-
           EPIC
-
         </div>
 
 
@@ -579,7 +742,9 @@
 
 
 
-    <!-- PET DETAILS -->
+    <!-- =================================================
+         PET INFORMATION
+    ================================================= -->
 
     <div class="pet-details-right">
 
@@ -598,14 +763,14 @@
         id="detailDescription"
         class="pet-description"
       >
-
         A powerful digital creature.
-
       </p>
 
 
 
-      <!-- STATS -->
+      <!-- =================================================
+           STATS
+      ================================================= -->
 
       <div class="stats-title">
 
@@ -620,10 +785,10 @@
       </div>
 
 
+
       <!-- HP -->
 
       <div class="stat">
-
 
         <div class="stat-header">
 
@@ -647,7 +812,6 @@
 
         </div>
 
-
       </div>
 
 
@@ -655,7 +819,6 @@
       <!-- ATTACK -->
 
       <div class="stat">
-
 
         <div class="stat-header">
 
@@ -679,7 +842,6 @@
 
         </div>
 
-
       </div>
 
 
@@ -687,7 +849,6 @@
       <!-- DEFENSE -->
 
       <div class="stat">
-
 
         <div class="stat-header">
 
@@ -711,7 +872,6 @@
 
         </div>
 
-
       </div>
 
 
@@ -719,7 +879,6 @@
       <!-- SPEED -->
 
       <div class="stat">
-
 
         <div class="stat-header">
 
@@ -743,12 +902,13 @@
 
         </div>
 
-
       </div>
 
 
 
-      <!-- SPECIAL ABILITY -->
+      <!-- =================================================
+           SPECIAL ABILITY
+      ================================================= -->
 
       <button
         id="abilityButton"
@@ -774,7 +934,6 @@
 
         <div>
 
-
           <span>
             SPECIAL ABILITY
           </span>
@@ -789,7 +948,6 @@
             —
           </p>
 
-
         </div>
 
 
@@ -797,7 +955,9 @@
 
 
 
-      <!-- META -->
+      <!-- =================================================
+           META
+      ================================================= -->
 
       <div class="pet-meta">
 
@@ -830,6 +990,9 @@
 
       </div>
 
+
+
+      <!-- BUY BUTTON IS CREATED BY pets.js -->
 
     </div>
 
@@ -887,13 +1050,11 @@
 
 <script>
 
-
 let piUser = null;
 
 let piAccessToken = null;
 
 let piInitialized = false;
-
 
 
 /* =====================================================
@@ -903,7 +1064,6 @@ let piInitialized = false;
 async function initializePi() {
 
   try {
-
 
     if (!window.Pi) {
 
@@ -938,12 +1098,10 @@ async function initializePi() {
 
   } catch (error) {
 
-
     console.error(
       "Pi initialization error:",
       error
     );
-
 
     return false;
 
@@ -952,9 +1110,8 @@ async function initializePi() {
 }
 
 
-
 /* =====================================================
-   SIGN UP WITH PI
+   SIGN UP
 ===================================================== */
 
 async function signUpWithPi() {
@@ -966,9 +1123,8 @@ async function signUpWithPi() {
 }
 
 
-
 /* =====================================================
-   LOG IN WITH PI
+   LOGIN
 ===================================================== */
 
 async function signInWithPi() {
@@ -980,15 +1136,13 @@ async function signInWithPi() {
 }
 
 
-
 /* =====================================================
-   MAIN PI AUTHENTICATION
+   AUTHENTICATE
 ===================================================== */
 
 async function authenticateWithPi(
   loadingText
 ) {
-
 
   const loginButton =
     document.getElementById(
@@ -1003,7 +1157,6 @@ async function authenticateWithPi(
 
 
   try {
-
 
     if (loginButton) {
 
@@ -1020,12 +1173,9 @@ async function authenticateWithPi(
     }
 
 
-    /* ---------------------------------------------
-       INITIALIZE SDK
-    --------------------------------------------- */
+    /* INITIALIZE */
 
     if (!piInitialized) {
-
 
       const initialized =
         await initializePi();
@@ -1042,9 +1192,7 @@ async function authenticateWithPi(
     }
 
 
-    /* ---------------------------------------------
-       REQUIRED SCOPES
-    --------------------------------------------- */
+    /* SCOPES */
 
     const scopes = [
 
@@ -1055,27 +1203,21 @@ async function authenticateWithPi(
     ];
 
 
-    /* ---------------------------------------------
-       INCOMPLETE PAYMENT
-    --------------------------------------------- */
+    /* INCOMPLETE PAYMENT */
 
     function onIncompletePaymentFound(
       payment
     ) {
-
 
       console.log(
         "Incomplete payment found:",
         payment
       );
 
-
     }
 
 
-    /* ---------------------------------------------
-       AUTHENTICATE
-    --------------------------------------------- */
+    /* AUTHENTICATE */
 
     const auth =
       await Pi.authenticate(
@@ -1087,9 +1229,7 @@ async function authenticateWithPi(
       );
 
 
-    /* ---------------------------------------------
-       SAVE AUTH
-    --------------------------------------------- */
+    /* SAVE USER */
 
     piUser =
       auth.user;
@@ -1105,15 +1245,12 @@ async function authenticateWithPi(
     );
 
 
-    /* ---------------------------------------------
-       UPDATE USERNAME
-    --------------------------------------------- */
+    /* USERNAME */
 
     if (
       piUser &&
       piUser.username
     ) {
-
 
       const profileName =
         document.getElementById(
@@ -1128,20 +1265,15 @@ async function authenticateWithPi(
 
       }
 
-
     }
 
 
-    /* ---------------------------------------------
-       WALLET UI
-    --------------------------------------------- */
+    /* WALLET */
 
     await refreshPiWallet();
 
 
-    /* ---------------------------------------------
-       LOGIN BUTTON
-    --------------------------------------------- */
+    /* LOGIN BUTTON */
 
     if (loginText) {
 
@@ -1159,9 +1291,7 @@ async function authenticateWithPi(
     }
 
 
-    /* ---------------------------------------------
-       GO MARKETPLACE
-    --------------------------------------------- */
+    /* GO MARKETPLACE */
 
     const marketplace =
       document.getElementById(
@@ -1171,11 +1301,9 @@ async function authenticateWithPi(
 
     if (marketplace) {
 
-
       setTimeout(
 
         function() {
-
 
           marketplace.scrollIntoView({
 
@@ -1185,19 +1313,16 @@ async function authenticateWithPi(
 
           });
 
-
         },
 
         500
 
       );
 
-
     }
 
 
   } catch (error) {
-
 
     console.error(
       "Pi authentication failed:",
@@ -1231,19 +1356,16 @@ async function authenticateWithPi(
 
     );
 
-
   }
 
 }
 
 
-
 /* =====================================================
-   WALLET DISPLAY
+   WALLET
 ===================================================== */
 
 async function refreshPiWallet() {
-
 
   const balance =
     document.getElementById(
@@ -1264,7 +1386,6 @@ async function refreshPiWallet() {
 
 
   if (!piUser) {
-
 
     if (balance) {
 
@@ -1296,17 +1417,12 @@ async function refreshPiWallet() {
 
 
   /*
-   * IMPORTANT:
+   * Pi authentication does not expose
+   * the actual wallet balance.
    *
-   * Pi.authenticate() gives us authentication
-   * and the Pi user information.
-   *
-   * It does NOT provide the user's actual
-   * wallet balance to this frontend.
-   *
-   * Therefore we DO NOT display a fake balance.
+   * We intentionally do not show
+   * a fake balance.
    */
-
 
   if (balance) {
 
@@ -1334,21 +1450,17 @@ async function refreshPiWallet() {
 }
 
 
-
 /* =====================================================
    PROFILE
 ===================================================== */
 
 function openProfile() {
 
-
   if (!piUser) {
-
 
     alert(
       "🟣 Please log in with Pi first."
     );
-
 
     return;
 
@@ -1370,7 +1482,6 @@ function openProfile() {
   );
 
 }
-
 
 
 /* =====================================================
@@ -1395,9 +1506,7 @@ const profilePhotoPlaceholder =
   );
 
 
-
 function loadProfilePhoto() {
-
 
   const savedPhoto =
     localStorage.getItem(
@@ -1411,7 +1520,6 @@ function loadProfilePhoto() {
     profilePhotoPlaceholder
   ) {
 
-
     profilePhoto.src =
       savedPhoto;
 
@@ -1423,22 +1531,18 @@ function loadProfilePhoto() {
     profilePhotoPlaceholder.style.display =
       "none";
 
-
   }
 
 }
 
 
-
 if (profilePhotoInput) {
-
 
   profilePhotoInput.addEventListener(
 
     "change",
 
     function(event) {
-
 
       const file =
         event.target.files[0];
@@ -1457,11 +1561,9 @@ if (profilePhotoInput) {
         )
       ) {
 
-
         alert(
           "Please select an image file."
         );
-
 
         return;
 
@@ -1474,7 +1576,6 @@ if (profilePhotoInput) {
 
       reader.onload =
         function(e) {
-
 
           const imageData =
             e.target.result;
@@ -1509,14 +1610,12 @@ if (profilePhotoInput) {
 
           );
 
-
         };
 
 
       reader.readAsDataURL(
         file
       );
-
 
     }
 
@@ -1525,9 +1624,7 @@ if (profilePhotoInput) {
 }
 
 
-
 loadProfilePhoto();
-
 
 
 /* =====================================================
@@ -1546,6 +1643,91 @@ window.addEventListener(
 
 );
 
+</script>
+
+
+<!-- =====================================================
+     MARKETPLACE FILTER ENHANCEMENT
+===================================================== -->
+
+<script>
+
+/*
+ * The main pet rendering/filtering system
+ * remains inside pets.js.
+ *
+ * This small enhancement only updates
+ * the visible pet counter.
+ */
+
+function updatePetCount() {
+
+  const grid =
+    document.getElementById(
+      "petGrid"
+    );
+
+
+  const count =
+    document.getElementById(
+      "petCount"
+    );
+
+
+  if (!grid || !count) {
+
+    return;
+
+  }
+
+
+  const cards =
+    grid.querySelectorAll(
+      ".pet-card"
+    );
+
+
+  count.textContent =
+    cards.length;
+
+}
+
+
+window.addEventListener(
+  "load",
+  function() {
+
+    setTimeout(
+      updatePetCount,
+      100
+    );
+
+  }
+);
+
+
+const originalDisplayPets =
+  window.displayPets;
+
+
+if (
+  typeof originalDisplayPets ===
+  "function"
+) {
+
+  window.displayPets =
+    function() {
+
+      originalDisplayPets();
+
+      setTimeout(
+        updatePetCount,
+        0
+      );
+
+    };
+
+}
 
 </script>
 
